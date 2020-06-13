@@ -1,1 +1,1 @@
-# The-Spell-EngineLogic
+# The-Spell-Logic (TSLogic)
