@@ -2,7 +2,7 @@
 
 #include "LevelParser.hpp"
 
-bool LevelParser::openFile(const std::string& FileName)
+bool TSLogic::LevelParser::openFile(const std::string& FileName)
 {
     Root.clear();
     ResourceManager::RemoveOrphans();
@@ -29,7 +29,7 @@ bool LevelParser::openFile(const std::string& FileName)
     return true;
 }
 
-Player LevelParser::loadPlayer()
+TSLogic::Player TSLogic::LevelParser::loadPlayer()
 {
     return Player
     (
@@ -39,7 +39,7 @@ Player LevelParser::loadPlayer()
     );
 }
 
-bool LevelParser::loadEnemies(std::vector< std::unique_ptr< Enemy > >& Enemies)
+bool TSLogic::LevelParser::loadEnemies(std::vector< std::unique_ptr< Enemy > >& Enemies)
 {
     Enemy::Type EnemyType;
     
@@ -81,7 +81,7 @@ bool LevelParser::loadEnemies(std::vector< std::unique_ptr< Enemy > >& Enemies)
     return true;
 }
 
-bool LevelParser::loadBackground(std::vector< TileMap >& Background)
+bool TSLogic::LevelParser::loadBackground(std::vector< TileMap >& Background)
 {
     sf::Vector2f TileSize = sf::Vector2f
     (

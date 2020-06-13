@@ -2,7 +2,7 @@
 #include "../../CentralStuff/TypeDefs.hpp"
 #include "../../CentralStuff/CoreFunctions.hpp"
 
-void Camera::setCameraSize(const sf::Vector2f& NewSize)
+void TSLogic::Camera::setCameraSize(const sf::Vector2f& NewSize)
 {
     float ScaleFactor = 1;
     while(NewSize.x / ScaleFactor > DefaultSize.x || NewSize.y / ScaleFactor > DefaultSize.y)
@@ -11,7 +11,7 @@ void Camera::setCameraSize(const sf::Vector2f& NewSize)
     CameraSize = {NewSize.x / ScaleFactor, NewSize.y / ScaleFactor};
 }
 
-void Camera::UpdateCamera(const sf::FloatRect& EntityCenter)
+void TSLogic::Camera::UpdateCamera(const sf::FloatRect& EntityCenter)
 {
     PlayerCentralPosition = getPlayerCenterPosition(EntityCenter);
     sf::Vector2f Direction = getCameraDirection();
@@ -22,7 +22,7 @@ void Camera::UpdateCamera(const sf::FloatRect& EntityCenter)
     correctCamera(CollisionType);
 }
 
-void Camera::correctCamera(const Camera::Collisions& CollisionType)
+void TSLogic::Camera::correctCamera(const Camera::Collisions& CollisionType)
 {
     sf::Vector2f CameraPosition = getCenter();
     sf::Vector2f SuperiorLimitsDiff = LevelLimits - (CameraPosition + CameraSize / 2.f);
@@ -38,7 +38,7 @@ void Camera::correctCamera(const Camera::Collisions& CollisionType)
         move(Axis::Horizontal * SuperiorLimitsDiff.x);
 }
 
-sf::Vector2f Camera::getCameraDirection()
+sf::Vector2f TSLogic::Camera::getCameraDirection()
 {
     sf::Vector2f CameraPosition = getCenter();
     sf::Vector2f Direction = Axis::None;
@@ -54,7 +54,7 @@ sf::Vector2f Camera::getCameraDirection()
     return Direction;
 }
 
-Camera::Collisions Camera::getCollisionType()
+TSLogic::Camera::Collisions TSLogic::Camera::getCollisionType()
 {
     sf::Vector2f CameraPosition = getCenter();
     if(CameraPosition.y - CameraSize.y / 2.f < 0.f)
@@ -69,12 +69,12 @@ Camera::Collisions Camera::getCollisionType()
         return Collisions::Nope;
 }
 
-void Camera::setLevelLimits(const sf::Vector2f& Limits)
+void TSLogic::Camera::setLevelLimits(const sf::Vector2f& Limits)
 {
     LevelLimits = Limits;
 }
 
-sf::Vector2f Camera::getPlayerCenterPosition(const sf::FloatRect& EntityRect)
+sf::Vector2f TSLogic::Camera::getPlayerCenterPosition(const sf::FloatRect& EntityRect)
 {
     return sf::Vector2f(EntityRect.left, EntityRect.top) + sf::Vector2f(EntityRect.width, EntityRect.height) / 2.f;
 }

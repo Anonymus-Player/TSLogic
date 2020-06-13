@@ -2,14 +2,14 @@
 #include "../../CentralStuff/Random.hpp"
 #include "../../CentralStuff/TypeDefs.hpp"
 
-#define MaxDistance 128.f
-#define MaxActions 3.f
+constexpr float MaxDistance = 128.f;
+constexpr float MaxActions = 3.f;
 
-BasicEnemy::BasicEnemy(const sf::Vector2f& Position, const sf::Vector2f& Size, const std::string& TextureFilename)
+TSLogic::BasicEnemy::BasicEnemy(const sf::Vector2f& Position, const sf::Vector2f& Size, const std::string& TextureFilename)
     : Enemy(Position, Size, TextureFilename)
 {}
 
-void BasicEnemy::Update(float DeltaTime)
+void TSLogic::BasicEnemy::Update(float DeltaTime)
 {
     auto [EnemyDirection, EnemyAction] = getAction();
     moveEntity(DeltaTime, EnemyDirection);
@@ -17,7 +17,7 @@ void BasicEnemy::Update(float DeltaTime)
     EntityAnimate(EnemyAction);
 }
 
-std::pair< sf::Vector2f, Actions > BasicEnemy::getAction()
+std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::BasicEnemy::getAction()
 {
     if(WalkingDistance > 0.f)
     {

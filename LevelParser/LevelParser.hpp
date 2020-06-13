@@ -8,28 +8,31 @@
 #include "../Enemy/IntelligentEnemy/IntelligentEnemy.hpp"
 #include "../Player/Player.hpp"
 
-class LevelParser
+namespace TSLogic
 {
-private:
-    //
-    static inline std::ifstream Reader;
-    //
-    static inline Json::Value Root;
-public:
-    ///
-    ///
-    ///
-    static bool openFile(const std::string& FileName);
-    ///
-    ///
-    ///
-    static Player loadPlayer();
-    ///
-    ///
-    ///
-    static bool loadEnemies(std::vector< std::unique_ptr< Enemy > >& Enemies);
-    ///
-    ///
-    ///
-    static bool loadBackground(std::vector< TileMap >& Background);
-};
+    class LevelParser
+    {
+    private:
+        //
+        static inline std::ifstream Reader;
+        //
+        static inline Json::Value Root;
+    public:
+        ///
+        ///
+        ///
+        static bool openFile(const std::string& FileName);
+        ///
+        ///
+        ///
+        static Player loadPlayer();
+        ///
+        ///
+        ///
+        static bool loadEnemies(std::vector< std::unique_ptr< Enemy > >& Enemies);
+        ///
+        ///
+        ///
+        static bool loadBackground(std::vector< TileMap >& Background);
+    };
+}

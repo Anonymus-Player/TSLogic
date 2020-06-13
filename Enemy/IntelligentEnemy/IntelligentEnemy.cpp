@@ -1,11 +1,11 @@
 #include "IntelligentEnemy.hpp"
 #include "../../CentralStuff/TypeDefs.hpp"
 
-IntelligentEnemy::IntelligentEnemy(const sf::Vector2f& Position, const sf::Vector2f& Size, const std::string& TextureFilename)
+TSLogic::IntelligentEnemy::IntelligentEnemy(const sf::Vector2f& Position, const sf::Vector2f& Size, const std::string& TextureFilename)
     : Enemy(Position, Size, TextureFilename)
 {}
 
-void IntelligentEnemy::Update(float DeltaTime)
+void TSLogic::IntelligentEnemy::Update(float DeltaTime)
 {
     EnemySpeed = DeltaTime * MovingSpeed / 2.f;
     auto [EnemyDirection, EnemyAction] = getAction();
@@ -13,7 +13,7 @@ void IntelligentEnemy::Update(float DeltaTime)
     EntityAnimate(EnemyAction);
 }
 
-std::pair< sf::Vector2f, Actions > IntelligentEnemy::getAction()
+std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::IntelligentEnemy::getAction()
 {
     if(isColliding())
         return EvitObstacle();
@@ -34,7 +34,7 @@ std::pair< sf::Vector2f, Actions > IntelligentEnemy::getAction()
     }
 }
 
-std::pair< sf::Vector2f, Actions > IntelligentEnemy::EvitObstacle()
+std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::IntelligentEnemy::EvitObstacle()
 {
     sf::Vector2f Position = getPosition();
     sf::Vector2f Size = getSize();
@@ -146,17 +146,17 @@ std::pair< sf::Vector2f, Actions > IntelligentEnemy::EvitObstacle()
     }
 }
 
-bool IntelligentEnemy::isColliding()
+bool TSLogic::IntelligentEnemy::isColliding()
 {
     return Obstcale != sf::FloatRect();
 }
 
-void IntelligentEnemy::setObstcaleInfo(const sf::FloatRect& ObstcaleRect)
+void TSLogic::IntelligentEnemy::setObstcaleInfo(const sf::FloatRect& ObstcaleRect)
 {
     Obstcale = ObstcaleRect;
 }
 
-void IntelligentEnemy::setDestinationPos(const sf::Vector2f& Destination)
+void TSLogic::IntelligentEnemy::setDestinationPos(const sf::Vector2f& Destination)
 {
     PlayerPos = Destination;
 }

@@ -1,15 +1,16 @@
 #include "SmartRect.hpp"
 #include "../CentralStuff/TypeDefs.hpp"
 
-void SmartRect::moveRect(const float& DeltaTime, const sf::Vector2f& Direction, const float& SpeedFactor)
+void TSLogic::SmartRect::moveRect(const float& DeltaTime, const sf::Vector2f& Direction, const float& SpeedFactor)
 {
     move(DeltaTime * MovingSpeed * Direction * SpeedFactor);
+    PseudoLineThickness = DeltaTime * MovingSpeed;
+    
     if(Direction != Directions::Stop)
         FacingDirection = Direction;
-    PseudoLineThickness = DeltaTime * MovingSpeed;
 }
 
-sf::Vector2f SmartRect::getCollisionDirection(const SmartRect& OtherObject)
+sf::Vector2f TSLogic::SmartRect::getCollisionDirection(const SmartRect& OtherObject)
 {
     sf::FloatRect OtherObjectFloatRect = OtherObject.getGlobalBounds();
     sf::FloatRect ObjectFloatRect = getGlobalBounds();
@@ -50,7 +51,7 @@ sf::Vector2f SmartRect::getCollisionDirection(const SmartRect& OtherObject)
     return -OtherObject.FacingDirection;
 }
 
-bool SmartRect::CheckCollision(const sf::FloatRect& OtherObjectFloatRect)
+bool TSLogic::SmartRect::CheckCollision(const sf::FloatRect& OtherObjectFloatRect)
 {
     sf::Vector2f Difference = getInwardsCollision(OtherObjectFloatRect);
     move(Difference);
@@ -60,7 +61,7 @@ bool SmartRect::CheckCollision(const sf::FloatRect& OtherObjectFloatRect)
         return false;
 }
 
-bool SmartRect::CheckCollision(const SmartRect& OtherObject, const CollisionTypes& CollisionType)
+bool TSLogic::SmartRect::CheckCollision(const SmartRect& OtherObject, const CollisionTypes& CollisionType)
 {
     if(CollisionType == CollisionTypes::Inwards)
     {
@@ -83,7 +84,7 @@ bool SmartRect::CheckCollision(const SmartRect& OtherObject, const CollisionType
     return false;
 }
 
-sf::Vector2f SmartRect::getInwardsCollision(const sf::FloatRect& OtherObjectFloatRect)
+sf::Vector2f TSLogic::SmartRect::getInwardsCollision(const sf::FloatRect& OtherObjectFloatRect)
 {
     sf::FloatRect ObjectFloatRect = getGlobalBounds();
     if(ObjectFloatRect.top < OtherObjectFloatRect.top)
@@ -97,7 +98,7 @@ sf::Vector2f SmartRect::getInwardsCollision(const sf::FloatRect& OtherObjectFloa
     return Axis::None;
 }
 
-sf::Vector2f SmartRect::getOutwardsCollision(const SmartRect& OtherObject)
+sf::Vector2f TSLogic::SmartRect::getOutwardsCollision(const SmartRect& OtherObject)
 {
     sf::FloatRect ObjectFloatRect = getGlobalBounds();
     sf::FloatRect OtherObjectFloatRect = OtherObject.getGlobalBounds();
@@ -117,7 +118,7 @@ sf::Vector2f SmartRect::getOutwardsCollision(const SmartRect& OtherObject)
     return Axis::None;
 }
 
-sf::Vector2f SmartRect::getInwardsCollision(const SmartRect& OtherObject)
+sf::Vector2f TSLogic::SmartRect::getInwardsCollision(const SmartRect& OtherObject)
 {
     sf::FloatRect ObjectFloatRect = getGlobalBounds();
     sf::FloatRect OtherObjectFloatRect = OtherObject.getGlobalBounds();

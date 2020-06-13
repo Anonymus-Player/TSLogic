@@ -8,7 +8,7 @@
 #define NoTexturePos sf::Vector2f(-1, -1)
 typedef unsigned int uint;
 
-void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void TSLogic::TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     states.transform *= getTransform();
     states.texture = TileMapTexture.get();
@@ -16,7 +16,7 @@ void TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(Vertices, states);
 }
 
-bool TileMap::RotateTile(sf::Vertex* Tile, Rotation TileRotation)
+bool TSLogic::TileMap::RotateTile(sf::Vertex* Tile, Rotation TileRotation)
 {
     if(TileRotation == Rotation::Negative)
         return false;
@@ -30,17 +30,17 @@ bool TileMap::RotateTile(sf::Vertex* Tile, Rotation TileRotation)
     return true;
 }
 
-void TileMap::setTileSize(const sf::Vector2f& Size)
+void TSLogic::TileMap::setTileSize(const sf::Vector2f& Size)
 {
     TileSize = Size;
 }
 
-void TileMap::setMapSize(const sf::Vector2u& Size)
+void TSLogic::TileMap::setMapSize(const sf::Vector2u& Size)
 {
     MapSize = Size;
 }
 
-bool TileMap::loadTexture(const std::string& FileName)
+bool TSLogic::TileMap::loadTexture(const std::string& FileName)
 {
     try
     {
@@ -55,7 +55,7 @@ bool TileMap::loadTexture(const std::string& FileName)
     return true;
 }
 
-bool TileMap::loadTileMap(const std::string& TileSet, const std::vector< TileInfo >& Tiles)
+bool TSLogic::TileMap::loadTileMap(const std::string& TileSet, const std::vector< TileInfo >& Tiles)
 {
     if(!loadTexture(TileSet))
     {

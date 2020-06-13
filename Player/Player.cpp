@@ -1,20 +1,20 @@
 #include "Player.hpp"
 #include <iostream>
 
-Player::Player(const sf::Vector2f& Position, const sf::Vector2f& Size, const std::string& TextureFilename): 
+TSLogic::Player::Player(const sf::Vector2f& Position, const sf::Vector2f& Size, const std::string& TextureFilename): 
     Entity(Position, Size)
 {
     initEntityAnim(TextureFilename);
 }
 
-void Player::Update(float DeltaTime)
+void TSLogic::Player::Update(float DeltaTime)
 {
     auto [PlayerDirection, PlayerAction] = getAction();
     moveEntity(DeltaTime, PlayerDirection);
     EntityAnimate(PlayerAction);
 }
 
-std::pair< sf::Vector2f, Actions > Player::getAction()
+std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::Player::getAction()
 {
     if(getInput::OnlyMovingUp())
         return {SmartRect::Directions::Up, Actions::MoveUp};
@@ -28,27 +28,27 @@ std::pair< sf::Vector2f, Actions > Player::getAction()
         return {SmartRect::Directions::Stop, Actions::None};
 }
 
-void Player::setCameraSize(const sf::Vector2f& NewSize)
+void TSLogic::Player::setCameraSize(const sf::Vector2f& NewSize)
 {
     PlayerCamera.setCameraSize(NewSize);
 }
 
-void Player::UpdateCamera()
+void TSLogic::Player::UpdateCamera()
 {
     PlayerCamera.UpdateCamera(getGlobalBounds());
 }
 
-sf::View Player::getPlayerCamera()
+sf::View TSLogic::Player::getPlayerCamera()
 {
     return PlayerCamera;
 }
 
-sf::Vector2f Player::getCameraSize()
+sf::Vector2f TSLogic::Player::getCameraSize()
 {
     return PlayerCamera.getSize();
 }
 
-void Player::setLevelLimits(const sf::Vector2f& Limits)
+void TSLogic::Player::setLevelLimits(const sf::Vector2f& Limits)
 {
     PlayerCamera.setLevelLimits(Limits);
 }

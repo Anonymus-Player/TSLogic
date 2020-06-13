@@ -1,41 +1,41 @@
 #include "EventHandler.hpp"
 
-bool getInput::OnlyMovingUp()
+bool TSLogic::getInput::OnlyMovingUp()
 {
     return MovingUp() && !MovingDown() && !MovingLeft() && !MovingRight();
 }
 
-bool getInput::OnlyMovingDown()
+bool TSLogic::getInput::OnlyMovingDown()
 {
     return MovingDown() && !MovingUp() && !MovingLeft() && !MovingRight();
 }
 
-bool getInput::OnlyMovingLeft()
+bool TSLogic::getInput::OnlyMovingLeft()
 {
     return MovingLeft() && !MovingUp() && !MovingDown() && !MovingRight();
 }
 
-bool getInput::OnlyMovingRight()
+bool TSLogic::getInput::OnlyMovingRight()
 {
     return MovingRight() && !MovingUp() && !MovingDown() && !MovingLeft();
 }
 
-bool getInput::MovingUp()
+bool TSLogic::getInput::MovingUp()
 {
     return sf::Keyboard::isKeyPressed(sf::Keyboard::W);
 }
 
-bool getInput::MovingDown()
+bool TSLogic::getInput::MovingDown()
 {
     return sf::Keyboard::isKeyPressed(sf::Keyboard::S);
 }
 
-bool getInput::MovingLeft()
+bool TSLogic::getInput::MovingLeft()
 {
     return sf::Keyboard::isKeyPressed(sf::Keyboard::A);
 }
 
-bool getInput::MovingRight()
+bool TSLogic::getInput::MovingRight()
 {
     return sf::Keyboard::isKeyPressed(sf::Keyboard::D);
 }
