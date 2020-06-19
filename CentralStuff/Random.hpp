@@ -3,7 +3,7 @@
 
 namespace TSLogic
 {
-    template< typename T >
+    template< typename Number >
     class RandomGenerator
     {
     private:
@@ -11,62 +11,66 @@ namespace TSLogic
         static inline std::mt19937_64 randomEngine;
     public:
         ///
-        /// @brief Generates a number between a Min and a Max, so, a range-based generation
+        /// @brief Generates a number between a Mininimum
+        /// and a Maximum, so, a range-based generation
         ///
-        /// @param Min - I don't know what to put here (I'm open to sugestions in regards)
+        /// @param Min - The smallest number that you want to generate
         ///
-        /// @param Max - Same as Min
+        /// @param Max - The biggest number that you want to generate
         ///
         /// @return A random generated number
         ///
-        static T getRandom(T Min, T Max)
+        static Number getRandom(Number Min, Number Max)
         {
-            if constexpr(std::is_integral< T >::value)
+            if constexpr(std::is_integral< Number >::value)
             {
-                std::uniform_int_distribution< T > randomDistribution(Min, Max);
+                std::uniform_int_distribution< Number > randomDistribution(Min, Max);
                 return randomDistribution(randomEngine);
             }
-            else if constexpr(std::is_floating_point< T >::value)
+            else if constexpr(std::is_floating_point< Number >::value)
             {
-                std::uniform_real_distribution< T > randomDistribution(Min, Max);
+                std::uniform_real_distribution< Number > randomDistribution(Min, Max);
                 return randomDistribution(randomEngine);
             }
         }
         ///
-        /// @brief Generates a number between 0 and Max, so, a range-based generation (I suggest to not put negative numbers)
+        /// @brief Generates a number between 0 and Max,
+        /// so, a range-based generation
         ///
-        /// @param Max - I don't know what to put here (I'm open to sugestions in regards)
+        /// @note This implementation does not account negative numbers
+        ///
+        /// @param Max - The biggest number that you want to generate
         ///
         /// @return A random generated number
         ///
-        static T getRandom(T Max)
+        static Number getRandom(Number Max)
         {
-            if constexpr(std::is_integral< T >::value)
+            if constexpr(std::is_integral< Number >::value)
             {
-                std::uniform_int_distribution< T > randomDistribution(0, Max);
+                std::uniform_int_distribution< Number > randomDistribution(0, Max);
                 return randomDistribution(randomEngine);
             }
-            else if constexpr(std::is_floating_point< T >::value)
+            else if constexpr(std::is_floating_point< Number >::value)
             {
-                std::uniform_real_distribution< T > randomDistribution(0, Max);
+                std::uniform_real_distribution< Number > randomDistribution(0, Max);
                 return randomDistribution(randomEngine);
             }
         }
         ///
-        /// @brief Idk, generates a random number
+        /// @brief Generates a random number
         ///
         /// @return A random generated number
         ///
-        static T getRandom()
+        static Number getRandom()
         {
-            if constexpr(std::is_integral< T >::value)
+            if constexpr(std::is_integral< Number >::value)
             {
-                std::uniform_int_distribution< T > randomDistribution;
+                std::uniform_int_distribution< Number > randomDistribution;
                 return randomDistribution(randomEngine);
             }
-            else if constexpr(std::is_floating_point< T >::value)
+            else if constexpr(std::is_floating_point< Number >::value)
             {
-                std::uniform_real_distribution< T > randomDistribution;
+                std::uniform_real_distribution< Number > randomDistribution;
                 return randomDistribution(randomEngine);
             }
         }

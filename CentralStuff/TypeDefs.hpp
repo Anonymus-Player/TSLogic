@@ -1,12 +1,17 @@
 #pragma once
 
-// Used for defining the uint type, typically define for Linux already (Cross compilling reasons)
+// Used for defining the uint type,
+// typically define for Linux already
+// (Cross compilling reasons)
 typedef unsigned int uint;
-// Used for defining the ulong type, typically define for Linux already (Cross compilling reasons)
+// Used for defining the ulong type,
+// typically define for Linux already
+// (Cross compilling reasons)
 typedef unsigned long ulong;
-// Standard size of a texture, bc it needs to run on all hw
+// Standard size of a texture,
+// bc it needs to run on all hardware
 constexpr uint TextureMinSize = 512u;
-// Self-explanatory
+// The most resonable speed value
 constexpr float MovingSpeed = 300.f;
 // Used for collisions
 constexpr float PseudoLineMultiplier = 2.f;

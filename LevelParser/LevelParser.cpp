@@ -2,17 +2,17 @@
 
 #include "LevelParser.hpp"
 
-bool TSLogic::LevelParser::openFile(const std::string& FileName)
+bool TSLogic::LevelParser::openFile(const std::string& Filename)
 {
     Root.clear();
     ResourceManager::RemoveOrphans();
 
     Reader.close();
-    Reader.open(FileName);
+    Reader.open(Filename);
 
     if(!Reader.is_open())
     {
-        std::cerr << "File: " + FileName + " couldn't be opened\n";
+        std::cerr << "File: " + Filename + " couldn't be opened\n";
         return false;
     }
     
@@ -33,9 +33,13 @@ TSLogic::Player TSLogic::LevelParser::loadPlayer()
 {
     return Player
     (
-        sf::Vector2f(Root["Map"]["Player"]["Position"][0].asFloat(), Root["Map"]["Player"]["Position"][1].asFloat()), 
-        sf::Vector2f(Root["Map"]["Player"]["Size"][0].asFloat(), Root["Map"]["Player"]["Size"][1].asFloat()),
-        Root["Map"]["Player"]["FileName"].asString()
+        sf::Vector2f(Root["Map"]["Player"]["Position"][0].asFloat(), 
+                    Root["Map"]["Player"]["Position"][1].asFloat()), 
+
+        sf::Vector2f(Root["Map"]["Player"]["Size"][0].asFloat(), 
+                    Root["Map"]["Player"]["Size"][1].asFloat()),
+
+        Root["Map"]["Player"]["Filename"].asString()
     );
 }
 
@@ -125,6 +129,7 @@ bool TSLogic::LevelParser::loadBackground(std::vector< TileMap >& Background)
         catch(const std::exception& Exception)
         {
             std::cerr << Exception.what() << '\n';
+            Background.clear();
             return false;
         }
     }

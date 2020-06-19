@@ -16,21 +16,31 @@ void TSLogic::IntelligentEnemy::Update(float DeltaTime)
 std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::IntelligentEnemy::getAction()
 {
     if(isColliding())
+    {    
         return EvitObstacle();
+    }
     else
     {
         sf::Vector2f Position = getPosition();
         
         if(Position.x < PlayerPos.x - EnemySpeed)
+        {    
             return {SmartRect::Directions::Right, Actions::MoveRight};
+        }
         else if(Position.x > PlayerPos.x + EnemySpeed)
+        {    
             return {SmartRect::Directions::Left, Actions::MoveLeft};
+        }
         else if(Position.y < PlayerPos.y - EnemySpeed)
+        {    
             return {SmartRect::Directions::Down, Actions::MoveDown};
+        }
         else if(Position.y > PlayerPos.y + EnemySpeed)
+        {    
             return {SmartRect::Directions::Up, Actions::MoveUp};
-        else
-            return {SmartRect::Directions::Stop, Actions::None};
+        }
+        
+        return {SmartRect::Directions::Stop, Actions::None};
     }
 }
 
@@ -54,7 +64,9 @@ std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::IntelligentEnemy::EvitObsta
                 float UpDiff = Position.y + Size.y - Obstcale.top;
 
                 if(UpDiff >= 0.f)
+                {    
                     return {SmartRect::Directions::Up, Actions::MoveUp};
+                }
                 else
                 {
                     DirectionOnCollision = SmartRect::Directions::Stop;
@@ -67,7 +79,9 @@ std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::IntelligentEnemy::EvitObsta
                 float DownDiff = Obstcale.top + Obstcale.height - Position.y;
 
                 if(DownDiff >= 0.f)
+                {    
                     return {SmartRect::Directions::Down, Actions::MoveDown};
+                }
                 else
                 {
                     DirectionOnCollision = SmartRect::Directions::Stop;
@@ -85,9 +99,13 @@ std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::IntelligentEnemy::EvitObsta
         else
         {
             if(LeftDiff < RightDiff)
+            {    
                 return {SmartRect::Directions::Left, Actions::MoveLeft};
+            }
             else
-                return {SmartRect::Directions::Right, Actions::MoveRight}; 
+            {    
+                return {SmartRect::Directions::Right, Actions::MoveRight};
+            } 
         }
     }
     else if(DirectionOnCollision == SmartRect::Directions::Left || DirectionOnCollision == SmartRect::Directions::Right)
@@ -102,7 +120,9 @@ std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::IntelligentEnemy::EvitObsta
                 float LeftDiff = Position.x + Size.x - Obstcale.left;
 
                 if(LeftDiff >= 0.f)
+                {    
                     return {SmartRect::Directions::Left, Actions::MoveLeft};
+                }
                 else
                 {
                     DirectionOnCollision = SmartRect::Directions::Stop;
@@ -115,7 +135,9 @@ std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::IntelligentEnemy::EvitObsta
                 float RightDiff = Obstcale.left + Obstcale.width - Position.x;
                 
                 if(RightDiff >= 0.f)
+                {    
                     return {SmartRect::Directions::Right, Actions::MoveRight};
+                }
                 else
                 {
                     DirectionOnCollision = SmartRect::Directions::Stop;
@@ -133,9 +155,13 @@ std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::IntelligentEnemy::EvitObsta
         else
         {
             if(UpDiff < DownDiff)
+            {    
                 return {SmartRect::Directions::Up, Actions::MoveUp};
+            }
             else
+            {    
                 return {SmartRect::Directions::Down, Actions::MoveDown};
+            }
         }
     }
     else

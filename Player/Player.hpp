@@ -6,6 +6,7 @@
 
 namespace TSLogic
 {
+    // Basic information about player
     struct PlayerInfo : public EnityInfo
     {};
 
@@ -26,7 +27,8 @@ namespace TSLogic
         /// 
         Player(const sf::Vector2f& Position, const sf::Vector2f& Size, const std::string& TextureFilename);
         ///
-        /// @brief Used for scaling the Cmera in order to support multiple resoultions 
+        /// @brief Used for scaling the Cmera in 
+        /// order to support multiple resoultions 
         ///
         /// @param NewSize - The size of window after beeing resized
         ///
@@ -34,17 +36,19 @@ namespace TSLogic
         ///
         /// @brief Gets the size of what the player sees
         ///
-        /// @return The size represented in a sf::Vector2f
+        /// @return The size represented as a sf::Vector2f
         ///
         sf::Vector2f getCameraSize();
         ///
         /// @brief Calls all function like: UpdateView and ProcessInput
         ///
-        /// @param DeltaTime - Time between frames
+        /// @param DeltaTime - The time between each frame
         ///
         void Update(float DeltaTime);
         ///
-        /// @return Player's camera
+        /// @brief Gets the player's perspective
+        ///
+        /// @return The current perspective of the player
         ///
         sf::View getPlayerCamera();
         ///
@@ -54,7 +58,7 @@ namespace TSLogic
         ///
         void setLevelLimits(const sf::Vector2f& Limits);
         ///
-        /// @brief Does what you see
+        /// @brief It update the player's view
         ///
         void UpdateCamera();
     };

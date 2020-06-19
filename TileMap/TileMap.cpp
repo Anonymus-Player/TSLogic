@@ -4,9 +4,7 @@
 #include "../ResourceManager/ResourceManager.hpp"
 #include "../CentralStuff/CoreFunctions.hpp"
 
-#define Pi 3.14f
 #define NoTexturePos sf::Vector2f(-1, -1)
-typedef unsigned int uint;
 
 void TSLogic::TileMap::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
@@ -21,11 +19,14 @@ bool TSLogic::TileMap::RotateTile(sf::Vertex* Tile, Rotation TileRotation)
     if(TileRotation == Rotation::Negative)
         return false;
 
+    constexpr float Pi = 3.14f;
     sf::Vector2f TileCenter = Tile[0].position + TileSize / 2.f;
 
     for(int Index = 0; Index < 4; Index++)
+    {
         Tile[Index].position = RotateAround(Tile[Index].position, 
         TileCenter, static_cast< float >(TileRotation) * Pi / 2.f);
+    }
 
     return true;
 }
@@ -37,14 +38,14 @@ void TSLogic::TileMap::setTileSize(const sf::Vector2f& Size)
 
 void TSLogic::TileMap::setMapSize(const sf::Vector2u& Size)
 {
-    MapSize = Size;
+    LayerSize = Size;
 }
 
-bool TSLogic::TileMap::loadTexture(const std::string& FileName)
+bool TSLogic::TileMap::loadTexture(const std::string& Filename)
 {
     try
     {
-        TileMapTexture = ResourceManager::Acquire(FileName);
+        TileMapTexture = ResourceManager::Acquire(Filename);
     }
     catch(const std::exception& Exeption)
     {
@@ -63,7 +64,7 @@ bool TSLogic::TileMap::loadTileMap(const std::string& TileSet, const std::vector
         return false;
     }
 
-    if(TileSize == sf::Vector2f() || MapSize == sf::Vector2u())
+    if(TileSize == sf::Vector2f() || LayerSize == sf::Vector2u())
     {
         std::cerr << "Something is not Right with Size\n";
         return false;
@@ -71,10 +72,10 @@ bool TSLogic::TileMap::loadTileMap(const std::string& TileSet, const std::vector
 
     Vertices.setPrimitiveType(sf::Quads);
 
-    for(uint i = 0; i < MapSize.x; i++)
-        for(uint j = 0; j < MapSize.y; j++)
+    for(unsigned i = 0; i < LayerSize.x; i++)
+        for(unsigned j = 0; j < LayerSize.y; j++)
         {
-            TileInfo Tile = Tiles[i + j * MapSize.x];
+            TileInfo Tile = Tiles[i + j * LayerSize.x];
 
             if(Tile.TexturePos == NoTexturePos)
                 continue;
@@ -96,7 +97,7 @@ bool TSLogic::TileMap::loadTileMap(const std::string& TileSet, const std::vector
             if(!RotateTile(Quad, Tile.TileRotation))
             {
                 std::cerr << "Rotation went wrong\nTileRotation: " 
-                << static_cast< int >(Tile.TileRotation) << "\n";
+                << static_cast< int >(Tile.TileRotation) << '\n';
                 Vertices.clear();
                 return false;
             }

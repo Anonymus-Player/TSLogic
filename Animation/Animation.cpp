@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "Animation.hpp"
-#include "../CentralStuff/TypeDefs.hpp"
+#include "../CentralStuff/CoreFunctions.hpp"
 #include "../ResourceManager/ResourceManager.hpp"
 
 void TSLogic::Animation::Animate(sf::RectangleShape& EntityRect, const Actions& Action)
@@ -22,12 +22,14 @@ void TSLogic::Animation::Animate(sf::RectangleShape& EntityRect, const Actions& 
     {
         ResourceManager::RemoveOrphans();
         AnimTexture = ResourceManager::Acquire(Filename, 
+        // Loads a new frame
         sf::IntRect(CurrentFrame * static_cast<int>(FrameSize.x), 
         static_cast<int>(CurrentAction) * static_cast<int>(FrameSize.y), 
         static_cast<int>(FrameSize.x), static_cast<int>(FrameSize.y)));
     }
     else
     {
+        // Changes the current frames
         EntityRect.setTextureRect(sf::IntRect(CurrentFrame * static_cast<int>(FrameSize.x), 
         static_cast<int>(CurrentAction) * static_cast<int>(FrameSize.y), 
         static_cast<int>(FrameSize.x), static_cast<int>(FrameSize.y)));
@@ -38,15 +40,19 @@ void TSLogic::Animation::Animate(sf::RectangleShape& EntityRect, const Actions& 
 
 void TSLogic::Animation::setFrameLimit(const std::string& TextureFilename, const int& HorizontalFrameSize)
 {
-    sf::Image Im;
-    
-    Im.loadFromFile(TextureFilename);
-    sf::Vector2u TextureSize = Im.getSize();
-    
+    sf::Image Image;
+    Image.loadFromFile(TextureFilename);
+
+    sf::Vector2u TextureSize = Image.getSize();
     FrameLimit = static_cast<int>(TextureSize.x) / HorizontalFrameSize;
-    if(TextureSize.x > TextureMinSize || TextureSize.y > TextureMinSize)
-        std::cout << "Warning: Recommended size is exced.\nNote that texture won't be compatible with all GPUs\n";
-    if(TextureSize.x > sf::Texture::getMaximumSize() || TextureSize.y > sf::Texture::getMaximumSize())
+
+    if(CompareToMin(TextureSize.x) || CompareToMin(TextureSize.y))
+    {
+        constexpr auto Warning = "Warning: Recommended size is exced."
+            "\nNote that texture won't be compatible with all GPUs\n";
+        std::cerr << Warning;
+    }
+    else if(CompareToMax(TextureSize.x) || CompareToMax(TextureSize.y))
     {
         NeedsToLoad = true;
         Filename = TextureFilename;

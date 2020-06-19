@@ -9,7 +9,8 @@ namespace TSLogic
     private:
         // Used for Collision logic
         static inline float PseudoLineThickness = 2.f;
-        // Used for defining directions for collision instead of using magic numbers
+        // Used for defining directions for
+        // collision instead of using magic numbers
         struct Axis
         {
             static inline const sf::Vector2f None = {0.f, 0.f};
@@ -19,33 +20,43 @@ namespace TSLogic
         ///
         /// @brief This is where collision is check, but inwards
         ///
-        /// @param OtherObject - The Object itself
+        /// @param OtherObject - The Object that
+        /// is trying to escape from this one
         ///
-        /// @return The Difference in order to correct to push in a appropriate direction 
+        /// @return The Difference in order to correct
+        /// to push in a appropriate direction 
         ///
         sf::Vector2f getInwardsCollision(const SmartRect& OtherObject);
         ///
-        /// @brief This is where collision is check, but inwards and for collisions with the margin of the level
+        /// @brief This is where collision is check, but inwards
+        /// and for collisions with the margin of the level
         ///
-        /// @param OtherObjectFloatRect - The binding box of the object
+        /// @param Border - The binding box of the object
         ///
-        /// @return The Difference in order to correct to push in a appropriate direction 
+        /// @return The Difference in order to
+        /// correct to push in a appropriate direction 
         ///
-        sf::Vector2f getInwardsCollision(const sf::FloatRect& OtherObjectFloatRect);
+        sf::Vector2f getInwardsCollision(const sf::FloatRect& Border);
         ///
         /// @brief This is where collision is check, but outwards
         ///
-        /// @param OtherObject - The Object itself
+        /// @param OtherObject - The Object that
+        /// is trying to enter in this one
         ///
-        /// @return The Difference in order to correct to push in a appropriate direction 
+        /// @return The Difference in order to
+        /// correct to push in a appropriate direction 
         ///
         sf::Vector2f getOutwardsCollision(const SmartRect& OtherObject);
         ///
-        /// @brief Used for colliding with 2 moving objects in order to get the direction based on a "PesudoLine" (range area) in that direction
+        /// @brief Used for colliding with 2 moving objects
+        /// in order to get the direction based on a
+        /// "PseudoLine" (range area) in that direction
         ///
-        /// @param OtherObject - The Object itself
+        /// @param OtherObject - The Object that is colliding with this one
         ///
-        /// @return a Direction (see Directions declared below)
+        /// @return One of the possible Directions
+        ///
+        /// @see SmartRect::Directions (declared below)
         ///
         sf::Vector2f getCollisionDirection(const SmartRect& OtherObject);
     public:
@@ -65,36 +76,42 @@ namespace TSLogic
             Outwards
         };
         // This can be used lately for projectiles and other stuff
+        // And it's used for Collision reaction
         sf::Vector2f FacingDirection = Directions::Stop;
         ///
-        /// @brief I think this is self-explanatory
+        /// @brief Moves the object to a desired
+        /// direction, with a frame independent
+        /// speed and a modifiable Speed factor
         ///
         /// @param DeltaTime - Time between frames
         ///
-        /// @param Direction - Self-Explanatory
+        /// @param Direction - Where do you want to move
         ///
-        /// @param SpeedFactor
+        /// @param SpeedFactor - How fast do you want to move
         ///
         void moveRect(const float& DeltaTime, const sf::Vector2f& Direction, const float& SpeedFactor = 1.f);
         ///
-        /// @brief Like .Intersect method of the float rect but It moves the entity (at this point)
+        /// @brief Like .Intersect method of the sf::FloatRect,
+        /// but it moves the object (at this point)
         ///
-        /// @param OtherObject - The object itself
+        /// @param OtherObject - The Object that is colliding with this one
         ///
-        /// @param CollisionType - Idk, at this point I'm just lazy
+        /// @param CollisionType - What type of boject collision it is
         ///
-        /// @return It is a Boolean. I don't think this needs explation
+        /// @return A confirmation that "ThisObject" collided with "OtherObject"
         ///
         bool CheckCollision(const SmartRect& OtherObject, const CollisionTypes& CollisionType);
         ///
-        /// @brief Like .Intersect method of the float rect but It moves the entity (at this point)
+        /// @brief Like .Intersect method of the sf::FloatRect,
+        /// but It moves the entity (at this point)
         ///
-        /// @param OtherObjectFloatRect - The bounding box of the object
+        /// @param Border - The bounding box of the object
         ///
-        /// @warning This is used for inwards collision and needs to be used for the margins of the level 
+        /// @note This is used for inwards collision and
+        /// needs to be used for the margins of the map
         ///
-        /// @return It is a Boolean. I don't think this needs explation
+        /// @return A confirmation that this object tried to escape
         ///
-        bool CheckCollision(const sf::FloatRect& OtherObjectFloatRect);
+        bool CheckCollision(const sf::FloatRect& Border);
     };
-}
+} 

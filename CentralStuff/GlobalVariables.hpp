@@ -23,18 +23,21 @@ namespace TSLogic
     #define AppClock AppCore::AppClock
     // sf::Event global interface
     #define AppEvent AppCore::AppEvent
-    // Global interface for thie between frames
+    // Global interface for time between frames
     #define DeltaTime AppCore::DeltaTime
 
     ///
     /// @brief Gets what player sees
     ///
-    /// @return A FloatRect used for deciding if the enity needs to be updated or not
+    /// @return A FloatRect used for deciding
+    /// if the enity needs to be updated or not
     ///
     static sf::FloatRect getPerspective()
     {
         sf::View Perspective = AppWindow.getView();
-        sf::Vector2f Position = Perspective.getCenter() - (Perspective.getSize() / 2.f);
+        sf::Vector2f Position = Perspective.getCenter()
+                              - (Perspective.getSize() / 2.f);
+                              
         return sf::FloatRect(Position, Perspective.getSize());
     }
 

@@ -16,9 +16,11 @@ namespace TSLogic
         // The direction of the enemy in the mooment of collision
         sf::Vector2f DirectionOnCollision = SmartRect::Directions::Stop;
         ///
-        /// @brief Chooses the shorthest path according to the DirectionOnCollision variable
+        /// @brief Chooses the shorthest path according
+        /// to the DirectionOnCollision variable
         ///
-        /// @return A predefined direction and a action to animate in case of collision with an obstcale
+        /// @return A predefined direction and a action
+        /// to animate in case of collision with an obstcale
         ///
         std::pair< sf::Vector2f, Actions > EvitObstacle();
         ///

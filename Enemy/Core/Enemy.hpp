@@ -15,7 +15,7 @@ namespace TSLogic
         ///
         virtual std::pair< sf::Vector2f, Actions > getAction() = 0;
     public:
-        //
+        // Enemy types
         enum class Type
         {
             Basic,
@@ -41,7 +41,7 @@ namespace TSLogic
 
     struct EnemyInfo : public EnityInfo
     {
-        //
+        // What type of Enemy it is
         Enemy::Type Type;
     };
 }

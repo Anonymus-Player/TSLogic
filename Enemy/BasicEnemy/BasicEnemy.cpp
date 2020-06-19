@@ -22,15 +22,23 @@ std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::BasicEnemy::getAction()
     if(WalkingDistance > 0.f)
     {
         if(Action == Actions::MoveUp)
+        {    
             return {SmartRect::Directions::Up, Actions::MoveUp};
+        }
         else if(Action == Actions::MoveDown)
+        {    
             return {SmartRect::Directions::Down, Actions::MoveDown};
+        }
         else if(Action == Actions::MoveLeft)
+        {    
             return {SmartRect::Directions::Left, Actions::MoveLeft};
+        }
         else if(Action == Actions::MoveRight)
+        {    
             return {SmartRect::Directions::Right, Actions::MoveRight};
-        else
-            return {SmartRect::Directions::Stop, Actions::None};
+        }
+        
+        return {SmartRect::Directions::Stop, Actions::None};
     }
     else
     {

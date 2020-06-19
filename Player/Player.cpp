@@ -17,13 +17,21 @@ void TSLogic::Player::Update(float DeltaTime)
 std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::Player::getAction()
 {
     if(getInput::OnlyMovingUp())
+    {    
         return {SmartRect::Directions::Up, Actions::MoveUp};
+    }
     else if(getInput::OnlyMovingDown())
+    {    
         return {SmartRect::Directions::Down, Actions::MoveDown};
+    }
     else if(getInput::OnlyMovingLeft())
+    {
         return {SmartRect::Directions::Left, Actions::MoveLeft};
+    }
     else if(getInput::OnlyMovingRight())
+    {
         return {SmartRect::Directions::Right, Actions::MoveRight};
+    }
     else
         return {SmartRect::Directions::Stop, Actions::None};
 }
