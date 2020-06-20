@@ -20,6 +20,7 @@ This is the framework used in The Spell engine that I'm working on
 # Preview:
 
   If you want to see how it runs there is an example folder with a CMake file where you can see how it runs
+  Video: https://www.youtube.com/watch?v=NQQcAoYNp0Y
   # Build instructions:
   
   ```sh
