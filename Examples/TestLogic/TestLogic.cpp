@@ -1,4 +1,4 @@
-#include "../TSLogic/TSLogic.hpp"
+#include "../../TSLogic/TSLogic.hpp"
 
 int main()
 {
