@@ -34,6 +34,8 @@ add_executable(TSLogicTest
     ../../ResourceManager/ResourceManager.cpp
     ../../SmartRect/SmartRect.cpp
     ../../TileMap/TileMap.cpp
+    ../../Level/Level.cpp
+    ../../Gate/Gate.cpp
     ./TestLogic.cpp
 )
 
