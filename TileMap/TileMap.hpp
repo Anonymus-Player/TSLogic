@@ -21,25 +21,9 @@ namespace TSLogic
     struct TileInfo
     {
         // Where is its texture
-        sf::Vector2f TexturePos;
+        sf::Vector2f TexturePos = {-1.f, -1.f};
         // What rotation it has
-        Rotation TileRotation;
-        ///
-        /// @brief Initialize the Tile
-        ///
-        /// @param TextureP - Where its texture is
-        ///
-        /// @param TileR - What rotation it has
-        ///
-        TileInfo(const sf::Vector2f& TextureP, const Rotation& TileR)
-            : TexturePos(TextureP), TileRotation(TileR)
-        {}
-        ///
-        /// @brief Generates an empty Tile
-        ///
-        TileInfo()
-            : TexturePos({-1.f, -1.f}), TileRotation(Rotation::QuadrantI)
-        {}
+        Rotation TileRotation = Rotation::QuadrantI;
     };
     
     class TileMap : public sf::Drawable, public sf::Transformable
@@ -98,6 +82,12 @@ namespace TSLogic
         /// layer it will be LayerSize * TileSize
         ///
         void setMapSize(const sf::Vector2u& Size);
+        ///
+        /// @brief Gets the size of the map
+        ///
+        /// @return Current size
+        ///
+        sf::Vector2f getWorldSize();
         ///
         /// @brief Loads the information from TileInfo
         /// vector used then to create a layer

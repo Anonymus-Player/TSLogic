@@ -41,6 +41,11 @@ void TSLogic::TileMap::setMapSize(const sf::Vector2u& Size)
     LayerSize = Size;
 }
 
+sf::Vector2f TSLogic::TileMap::getWorldSize()
+{
+    return TileSize * static_cast< sf::Vector2f >(LayerSize);
+}
+
 bool TSLogic::TileMap::loadTexture(const std::string& Filename)
 {
     try

@@ -80,22 +80,9 @@
 
         "Enemies" :
         [
-            [0, 400, 400, 24, 32, "Resources/BasicEnemy.png"], 
-            [0, 400, 400, 24, 32, "Resources/BasicEnemy.png"], 
-            [0, 400, 400, 24, 32, "Resources/BasicEnemy.png"], 
-            [0, 400, 400, 24, 32, "Resources/BasicEnemy.png"], 
-            [0, 400, 400, 24, 32, "Resources/BasicEnemy.png"], 
-            [0, 400, 400, 24, 32, "Resources/BasicEnemy.png"], 
-            [0, 400, 400, 24, 32, "Resources/BasicEnemy.png"], 
-            [0, 400, 400, 24, 32, "Resources/BasicEnemy.png"]
-        ],
-        "Gates" :
-        [
-            {
-                "Area" : [1024, 0, 96, 4],
-                "Direction" : [0, -1],
-                "Filename" : "Levels/Level2.json"
-            }
+            [1, 400, 400, 24, 32, "Resources/BasicEnemy.png"], 
+            [1, 400, 400, 24, 32, "Resources/BasicEnemy.png"], 
+            [1, 400, 400, 24, 32, "Resources/BasicEnemy.png"]
         ]
     }
 }

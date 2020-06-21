@@ -15,7 +15,5 @@ constexpr uint TextureMinSize = 512u;
 constexpr float MovingSpeed = 300.f;
 // Used for collisions
 constexpr float PseudoLineMultiplier = 2.f;
-// Standard size of a tile
-#define TileSize sf::Vector2f(32.f, 32.f)
 // Camera scalling reference
 #define DefaultSize sf::Vector2f(480.f, 270.f)

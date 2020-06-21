@@ -7,6 +7,7 @@
 #include "../Enemy/BasicEnemy/BasicEnemy.hpp"
 #include "../Enemy/IntelligentEnemy/IntelligentEnemy.hpp"
 #include "../Player/Player.hpp"
+#include "../Gate/Gate.hpp"
 
 namespace TSLogic
 {
@@ -109,5 +110,31 @@ namespace TSLogic
         /// if not, everything that was inside will be cleared
         ///
         static bool loadBackground(std::vector< TileMap >& Background);
+        ///
+        /// @brief Loads the gates to the next map
+        /// from the same file used in loadPlayer method
+        ///
+        /// @note Gates information has this structure:
+        /// 
+        /// "Gates" : -> Its field name
+        /// [
+        ///     {
+        ///         "Area" : [1024, 0, 96, 4], -> Where it is and how big it is
+        ///         "Direction" : [0, -1], -> In what direction the protagonist should come
+        ///         "Filename" : "Levels/Level2.json" -> The path to a new JSON file
+        ///     },
+        ///     ... -> Next Item
+        /// ]
+        ///
+        /// @note For the "Direction" field:
+        /// 
+        /// @see SmartRect/SmartRect.hpp::TSLogic::SmartRect::Directions
+        ///
+        /// @param Gates - A vector that it holds every gate
+        ///
+        /// @return A confirmation that everything was OK, 
+        /// if not, everything that was inside will be cleared
+        ///
+        static bool loadGates(std::vector< Gate >& Gates);
     };
 }

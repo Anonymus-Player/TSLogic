@@ -43,6 +43,36 @@ TSLogic::Player TSLogic::LevelParser::loadPlayer()
     );
 }
 
+bool TSLogic::LevelParser::loadGates(std::vector< Gate >& Gates)
+{
+    for(Json::Value& Val : Root["Map"]["Gates"])
+    {
+        try
+        {
+            Gates.emplace_back
+            (
+                sf::FloatRect
+                (
+                    Val["Area"][0].asFloat(), Val["Area"][1].asFloat(), 
+                    Val["Area"][2].asFloat(), Val["Area"][3].asFloat()
+                ), sf::Vector2f
+                (
+                    Val["Direction"][0].asFloat(),
+                    Val["Direction"][1].asFloat()
+                ), Val["Filename"].asString()
+            );
+        }
+        catch(std::exception& Exception)
+        {
+            std::cerr << Exception.what() << '\n';
+            Gates.clear();
+            return false;
+        }
+    }
+
+    return true;
+}
+
 bool TSLogic::LevelParser::loadEnemies(std::vector< std::unique_ptr< Enemy > >& Enemies)
 {
     Enemy::Type EnemyType;
@@ -76,7 +106,7 @@ bool TSLogic::LevelParser::loadEnemies(std::vector< std::unique_ptr< Enemy > >& 
         }
         catch(std::exception& Exception)
         {
-            std::cerr << Exception.what() << "\n";
+            std::cerr << Exception.what() << '\n';
             Enemies.clear();
             return false;
         }

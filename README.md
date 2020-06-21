@@ -15,6 +15,7 @@ This is the framework used in The Spell engine that I'm working on
   - A texture resource manager
   - A collision reaction engine (which it works well, but it needs improvement)
   - Tile map support for making huge maps
+  - Levels support
   - Layers support
   
 # Preview:
@@ -32,4 +33,4 @@ This is the framework used in The Spell engine that I'm working on
   cmake ..
   make -j
   ./TSLogicTest
-  ```
+  `
