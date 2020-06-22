@@ -56,7 +56,7 @@ sf::Vector2f TSLogic::Player::getCameraSize()
     return PlayerCamera.getSize();
 }
 
-void TSLogic::Player::setLevelLimits(const sf::Vector2f& Limits)
+void TSLogic::Player::setCameraLimits(const sf::Vector2f& Limits)
 {
-    PlayerCamera.setLevelLimits(Limits);
+    PlayerCamera.setCameraLimits(Limits);
 }

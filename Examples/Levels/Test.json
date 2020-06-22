@@ -89,6 +89,7 @@
             [0, 400, 400, 24, 32, "Resources/BasicEnemy.png"], 
             [0, 400, 400, 24, 32, "Resources/BasicEnemy.png"]
         ],
+
         "Gates" :
         [
             {
@@ -96,6 +97,11 @@
                 "Direction" : [0, -1],
                 "Filename" : "Levels/Level2.json"
             }
+        ],
+
+        "Barriers" : 
+        [
+            [0, 0, 448, 352, 1]
         ]
     }
 }

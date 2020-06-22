@@ -86,6 +86,20 @@ namespace TSLogic
         /// @return A confirmation that it was colliding
         ///
         bool CheckCollision(Entity& Other, const SmartRect::CollisionTypes& CollisionType);
+         ///
+        /// @brief Check if an entitt and n object are colliding with each
+        /// other, if it collides it will react by moving this entity
+        ///
+        /// @note The collision is split between 2 section:
+        /// Inwards and Outwards, depending on CollisonType parameter 
+        ///
+        /// @param Other - The object that checking the collision with
+        ///
+        /// @param CollisionType - What kind of check it has to perform
+        ///
+        /// @return A confirmation that it was colliding
+        ///
+        bool CheckCollision(SmartRect& Other, const SmartRect::CollisionTypes& CollisionType);
         ///
         /// @brief Checks if an entity is colliding with an object,
         /// if it does it will make sure that the entity is inside

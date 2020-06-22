@@ -52,11 +52,11 @@ namespace TSLogic
         ///
         sf::View getPlayerCamera();
         ///
-        /// @brief Setup "The Level Border" 
+        /// @brief Setups How far the camera can go 
         ///
         /// @param Limits - The Size of the level
         ///
-        void setLevelLimits(const sf::Vector2f& Limits);
+        void setCameraLimits(const sf::Vector2f& Limits);
         ///
         /// @brief It update the player's view
         ///

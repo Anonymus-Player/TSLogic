@@ -93,7 +93,7 @@ TSLogic::Camera::Collisions TSLogic::Camera::getCollisionType()
     return Collisions::Nope;
 }
 
-void TSLogic::Camera::setLevelLimits(const sf::Vector2f& Limits)
+void TSLogic::Camera::setCameraLimits(const sf::Vector2f& Limits)
 {
     LevelLimits = Limits;
 }

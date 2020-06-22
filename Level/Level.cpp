@@ -11,9 +11,10 @@ void TSLogic::Level::LoadLevel(const std::string& LevelFilename)
     LevelParser::loadBackground(Background);
     LevelParser::loadEnemies(Enemies);
     LevelParser::loadGates(Gates);
+    LevelParser::loadBarriers(Borders);
     Protagonist = std::make_unique< Player >(LevelParser::loadPlayer());
     WorldSize = Background.at(0).getWorldSize();
-    Protagonist->setLevelLimits(WorldSize);
+    Protagonist->setCameraLimits(WorldSize);
     Protagonist->setCameraSize(static_cast< sf::Vector2f >(AppWindow.getSize()));
 }
 
@@ -62,22 +63,33 @@ void TSLogic::Level::UpdateLevel()
     DeltaTime = AppClock.restart().asSeconds();
     Protagonist->Update(DeltaTime);
     IntelligentEnemy::setDestinationPos(Protagonist->getPosition());
+    CheckCollisions();
+    Protagonist->UpdateCamera();
+    TSLogic::AppWindow.setView(Protagonist->getPlayerCamera());
+    GatesCheck();
+}
 
+void TSLogic::Level::CheckCollisions()
+{
     for(auto& Enemy : Enemies)
     {
         Enemy->Update(DeltaTime);
                     
         Protagonist->CheckCollision(*Enemy, SmartRect::CollisionTypes::Outwards);
+        Borders.CheckCollision(*Protagonist);
         Protagonist->CheckCollision(sf::FloatRect({0, 0}, WorldSize));
         
         Enemy->CheckCollision(*Protagonist, SmartRect::CollisionTypes::Outwards);
+        Borders.CheckCollision(*Enemy);
         Enemy->CheckCollision(sf::FloatRect({0, 0}, WorldSize));
     }
     
+    Borders.CheckCollision(*Protagonist);
     Protagonist->CheckCollision(sf::FloatRect({0, 0}, WorldSize));
-    Protagonist->UpdateCamera();
-    TSLogic::AppWindow.setView(Protagonist->getPlayerCamera());
+}
 
+void TSLogic::Level::GatesCheck()
+{
     for(auto& Gate : Gates)
     {
         // CConfirm = Collision Confirmation
@@ -91,6 +103,7 @@ void TSLogic::Level::UpdateLevel()
         {
             Background.clear();
             Enemies.clear();
+            Borders.clear();
             Gates.clear();
             Protagonist.~unique_ptr();
 

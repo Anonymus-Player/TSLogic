@@ -10,6 +10,8 @@ namespace TSLogic
     class Level : public sf::Drawable
     {
     private:
+        // Used for defining bounds that cannot be crossed
+        Barriers Borders;
         // Used for getting to other levels
         std::vector< Gate > Gates;
         // Layers the defines the background
@@ -31,6 +33,14 @@ namespace TSLogic
         /// @param states - Current render states
         ///
         virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+        ///
+        /// @brief It checks if the Protagonist collide with a gate
+        ///
+        void GatesCheck();
+        ///
+        /// @brief It checks collision between: Enemies and Barriers
+        ///
+        void CheckCollisions();
     public:
         ///
         /// @brief It creates a new level by calling LoadLevel

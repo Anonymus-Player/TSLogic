@@ -1,7 +1,0 @@
-Button {
-    BackgroundColor = rgb(47, 52, 63);
-    BackgroundColorHover = rgb(67, 72, 83);
-    TextColor = rgb(187, 196, 202);
-    TextColorHover = rgb(187, 196, 202);
-    BorderColor = rgb(0, 0, 0);
-}

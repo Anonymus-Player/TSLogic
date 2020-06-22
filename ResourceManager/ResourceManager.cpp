@@ -54,7 +54,7 @@ void TSLogic::ResourceManager::CheckSize(const std::string& Filename, const sf::
     {
         if(CompareToMax(ImageSize.x) || CompareToMax(ImageSize.y))
         {
-            std::runtime_error(Filename + ": " + TooBigToBeSupported);
+            throw std::runtime_error(Filename + ": " + TooBigToBeSupported);
         }
         else if(CompareToMin(ImageSize.x) || CompareToMin(ImageSize.y))
         {
@@ -65,7 +65,7 @@ void TSLogic::ResourceManager::CheckSize(const std::string& Filename, const sf::
     {
         if(CompareToMax(Area.width) || CompareToMax(Area.height))
         {
-            std::runtime_error(Filename + ": " + TooBigToBeSupported);
+            throw std::runtime_error(Filename + ": " + TooBigToBeSupported);
         }
         else if(CompareToMin(Area.width) || CompareToMin(Area.height))
         {

@@ -96,11 +96,11 @@ namespace TSLogic
         ///
         void setCameraSize(const sf::Vector2f& NewSize);
         ///
-        /// @brief Setups "The Map Border" 
+        /// @brief Setups How far the camera can go
         ///
         /// @param Limits - The Size of the map
         ///
-        void setLevelLimits(const sf::Vector2f& Limits);
+        void setCameraLimits(const sf::Vector2f& Limits);
         ///
         /// @brief It updates the camera every frame
         ///

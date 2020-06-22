@@ -43,6 +43,45 @@ TSLogic::Player TSLogic::LevelParser::loadPlayer()
     );
 }
 
+bool TSLogic::LevelParser::loadBarriers(Barriers& Borders)
+{
+    std::vector< Barriers::BarrierInfo > BarrierInfo;
+
+    for(Json::Value& Val : Root["Map"]["Barriers"])
+    {
+        try
+        {
+            BarrierInfo.emplace_back
+            (
+                Barriers::BarrierInfo{
+                    sf::FloatRect
+                    (
+                        Val[0].asFloat(), Val[1].asFloat(), 
+                        Val[2].asFloat(), Val[3].asFloat() 
+                    ), static_cast<SmartRect::CollisionTypes>(Val[4].asInt())
+            });
+        }
+        catch(std::exception& Exception)
+        {
+            std::cerr << Exception.what() << '\n';
+            BarrierInfo.clear();
+            return false;
+        }
+    }
+    try
+    {
+        Borders.loadBarriers(BarrierInfo);
+    }
+    catch(std::exception& Exception)
+    {
+        std::cerr << Exception.what() << '\n';
+        Borders.clear();
+        return false;
+    }
+
+    return true;
+}
+
 bool TSLogic::LevelParser::loadGates(std::vector< Gate >& Gates)
 {
     for(Json::Value& Val : Root["Map"]["Gates"])

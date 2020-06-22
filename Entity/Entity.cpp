@@ -28,6 +28,11 @@ bool TSLogic::Entity::CheckCollision(Entity& Other, const SmartRect::CollisionTy
     return EntityRect.CheckCollision(Other.EntityRect, CollisionType);
 }
 
+bool TSLogic::Entity::CheckCollision(SmartRect& Other, const SmartRect::CollisionTypes& CollisionType)
+{
+    return EntityRect.CheckCollision(Other, CollisionType);
+}
+
 bool TSLogic::Entity::CheckCollision(const sf::FloatRect& Area)
 {
     return EntityRect.CheckCollision(Area);

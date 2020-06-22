@@ -3,9 +3,10 @@
 #include <fstream>
 #include <json/json.h>
 
-#include "../TileMap/TileMap.hpp"
-#include "../Enemy/BasicEnemy/BasicEnemy.hpp"
 #include "../Enemy/IntelligentEnemy/IntelligentEnemy.hpp"
+#include "../Enemy/BasicEnemy/BasicEnemy.hpp"
+#include "../Barriers/Barries.hpp"
+#include "../TileMap/TileMap.hpp"
 #include "../Player/Player.hpp"
 #include "../Gate/Gate.hpp"
 
@@ -136,5 +137,23 @@ namespace TSLogic
         /// if not, everything that was inside will be cleared
         ///
         static bool loadGates(std::vector< Gate >& Gates);
+        ///
+        /// @brief Loads the barrires to the next map
+        /// from the same file used in loadPlayer method
+        ///
+        /// @note Barriers information has this structure:
+        ///
+        /// "Barriers" : -> Its field name
+        /// [
+        ///     [0, 344, 448, 8], -> Where it is and how big it is
+        ///     ... -> Next item
+        /// ]
+        ///
+        /// @param Borders - A vector that it holds every barrier
+        ///
+        /// @return A confirmation that everything was OK, 
+        /// if not, everything that was inside will be cleared
+        ///
+        static bool loadBarriers(Barriers& Borders);
     };
 }
