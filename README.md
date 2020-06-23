@@ -21,11 +21,15 @@ This is the framework used in The Spell engine that I'm working on
 # Preview:
 
   If you want to see how it runs there is an example folder with a CMake file where you can see how it runs
-  Video: https://www.youtube.com/watch?v=NQQcAoYNp0Y
-  # Build instructions:
+  
+# Videos: 
+  https://www.youtube.com/watch?v=NQQcAoYNp0Y
+  https://www.youtube.com/watch?v=Mn78pblibPY
+
+# Build instructions:
   
   ```sh
-  git clone https://github.com/CatalinNic1/TSLogic
+  git clone https://github.com/CatalinNic1/TSLogic.git
   cd TSLogic
   cd Examples
   mkdir build
