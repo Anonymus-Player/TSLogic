@@ -30,7 +30,7 @@ This is the framework used in The Spell engine that I'm working on
 # Build instructions:
   
   ```sh
-  git clone https://github.com/CatalinNic1/TSLogic.git
+  git clone https://github.com/Anonymus-Player/TSLogic.git
   cd TSLogic
   cd Examples
   mkdir build
@@ -38,4 +38,4 @@ This is the framework used in The Spell engine that I'm working on
   cmake ..
   make -j
   ./TSLogicTest
-  `
+  ```
