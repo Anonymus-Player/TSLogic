@@ -15,20 +15,24 @@ void TSLogic::Entity::initEntityAnim(const std::string& TextureFilename)
     EntityAnimation.AnimTexture = ResourceManager::Acquire(TextureFilename); 
     EntityRect.setTexture(EntityAnimation.AnimTexture.get());
     
-    EntityAnimation.setFrameLimit(TextureFilename, static_cast< int >(EntityRect.getSize().x));
+    EntityAnimation.setFrameLimit(
+        TextureFilename, static_cast< int >(EntityRect.getSize().x));
 }
 
-void TSLogic::Entity::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void TSLogic::Entity::draw(
+    sf::RenderTarget& target, sf::RenderStates states) const
 {
     target.draw(EntityRect, states);
 }
 
-bool TSLogic::Entity::CheckCollision(Entity& Other, const SmartRect::CollisionTypes& CollisionType)
+bool TSLogic::Entity::CheckCollision(
+    Entity& Other, const SmartRect::CollisionTypes& CollisionType)
 {
     return EntityRect.CheckCollision(Other.EntityRect, CollisionType);
 }
 
-bool TSLogic::Entity::CheckCollision(SmartRect& Other, const SmartRect::CollisionTypes& CollisionType)
+bool TSLogic::Entity::CheckCollision(
+    SmartRect& Other, const SmartRect::CollisionTypes& CollisionType)
 {
     return EntityRect.CheckCollision(Other, CollisionType);
 }
@@ -38,27 +42,43 @@ bool TSLogic::Entity::CheckCollision(const sf::FloatRect& Area)
     return EntityRect.CheckCollision(Area);
 }
 
-sf::Vector2f TSLogic::Entity::getPosition()
+sf::Vector2f TSLogic::Entity::getPosition() const
 {
     return EntityRect.getPosition();
 }
 
-sf::Vector2f TSLogic::Entity::getSize()
+sf::Vector2f TSLogic::Entity::getSize() const
 {
     return EntityRect.getSize();
 }
 
-sf::Vector2f TSLogic::Entity::getFacingDirection()
+sf::Vector2f TSLogic::Entity::getFacingDirection() const
 {
     return EntityRect.FacingDirection;
 }
 
-sf::FloatRect TSLogic::Entity::getGlobalBounds()
+sf::FloatRect TSLogic::Entity::getGlobalBounds() const
 {
     return EntityRect.getGlobalBounds();
 }
 
-void TSLogic::Entity::moveEntity(const float& DeltaTime, const sf::Vector2f& Direction, const float& SpeedFactor)
+int TSLogic::Entity::getHealth() const
+{
+    return EntityHealth;
+}
+
+int TSLogic::Entity::getDamage() const
+{
+    return EntityDamage;
+}
+
+void TSLogic::Entity::DealDamage(const int& Damage)
+{
+    EntityHealth -= Damage; 
+}
+
+void TSLogic::Entity::moveEntity(const float& DeltaTime, 
+    const sf::Vector2f& Direction, const float& SpeedFactor)
 {
     EntityRect.moveRect(DeltaTime, Direction, SpeedFactor);
 }

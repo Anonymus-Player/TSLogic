@@ -5,6 +5,8 @@ TSLogic::Player::Player(const sf::Vector2f& Position, const sf::Vector2f& Size, 
     Entity(Position, Size)
 {
     initEntityAnim(TextureFilename);
+    EntityHealth = 100;
+    EntityDamage = 10;
 }
 
 void TSLogic::Player::Update(float DeltaTime)

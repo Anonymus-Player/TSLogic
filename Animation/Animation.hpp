@@ -5,16 +5,15 @@
 
 namespace TSLogic
 {
-    // Different actions used for animating purposes, but they can have other usages
+    // Different actions used for animating
+    // purposes, but they can have other usages
     enum class Actions
     {
-        None = -1,
+        None,
         MoveUp,
         MoveDown,
         MoveLeft,
         MoveRight,
-        JumpLeft,
-        JumpRight,
         Attack,
         Pair,
     };
@@ -36,9 +35,12 @@ namespace TSLogic
         // This is wehere texture lives
         std::shared_ptr< sf::Texture > AnimTexture;
         ///
-        /// @brief Here is where the loading happens and frame limit will be set and
-        /// this is where the function will decide if it needs to switch textures or not, 
-        /// that is achived by verifying if the size of the whole texture is exceeding the recomended size 
+        /// @brief Here is where the loading happens
+        /// and frame limit will be set and this is
+        /// where the function will decide if it needs
+        /// to switch textures or not, that is achived
+        /// by verifying if the size of the whole 
+        /// texture is exceeding the recomended size 
         ///
         /// @param TextureFilename - Path of the image to be loaded
         ///
@@ -48,7 +50,8 @@ namespace TSLogic
         ///
         /// @brief Animates an object/entity depending on the action
         ///
-        /// @param EnityRect - Used to modify just some parametres radrading: tectxture rect or loading a texture
+        /// @param EnityRect - Used to modify just some parametres
+        /// radrading: tectxture rect or loading a texture
         ///
         /// @param Action - Action to animate
         ///

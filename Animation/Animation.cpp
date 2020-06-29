@@ -5,7 +5,8 @@
 #include "../CentralStuff/CoreFunctions.hpp"
 #include "../ResourceManager/ResourceManager.hpp"
 
-void TSLogic::Animation::Animate(sf::RectangleShape& EntityRect, const Actions& Action)
+void TSLogic::Animation::Animate(
+    sf::RectangleShape& EntityRect, const Actions& Action)
 {
     sf::Vector2f FrameSize = EntityRect.getSize();
     
@@ -24,21 +25,22 @@ void TSLogic::Animation::Animate(sf::RectangleShape& EntityRect, const Actions& 
         AnimTexture = ResourceManager::Acquire(Filename, 
         // Loads a new frame
         sf::IntRect(CurrentFrame * static_cast<int>(FrameSize.x), 
-        static_cast<int>(CurrentAction) * static_cast<int>(FrameSize.y), 
+        (static_cast<int>(CurrentAction) - 1) * static_cast<int>(FrameSize.y), 
         static_cast<int>(FrameSize.x), static_cast<int>(FrameSize.y)));
     }
     else
     {
         // Changes the current frames
         EntityRect.setTextureRect(sf::IntRect(CurrentFrame * static_cast<int>(FrameSize.x), 
-        static_cast<int>(CurrentAction) * static_cast<int>(FrameSize.y), 
+        (static_cast<int>(CurrentAction) - 1) * static_cast<int>(FrameSize.y), 
         static_cast<int>(FrameSize.x), static_cast<int>(FrameSize.y)));
     }
     
     CurrentFrame++;
 }
 
-void TSLogic::Animation::setFrameLimit(const std::string& TextureFilename, const int& HorizontalFrameSize)
+void TSLogic::Animation::setFrameLimit(
+    const std::string& TextureFilename, const int& HorizontalFrameSize)
 {
     sf::Image Image;
     Image.loadFromFile(TextureFilename);

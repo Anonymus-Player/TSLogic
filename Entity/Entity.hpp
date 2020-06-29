@@ -22,6 +22,12 @@ namespace TSLogic
     class Entity : public sf::Drawable
     {
     protected:
+        // Internal Variable used for defining
+        // how nuch health an entity has
+        int EntityHealth;
+        // Internal Variable used for defining
+        // how nuch damage an entity can deal
+        int EntityDamage;
         ///
         /// @brief Move the entity with a determined speed to a specific direction
         ///
@@ -32,7 +38,8 @@ namespace TSLogic
         /// @see SmartRect/SmartRect.hpp::TSLogic::Directions
         /// -> Those are all possible directions 
         ///
-        void moveEntity(const float& DeltaTime, const sf::Vector2f& Direction, const float& SpeedFactor = 1.f);
+        void moveEntity(const float& DeltaTime, 
+            const sf::Vector2f& Direction, const float& SpeedFactor = 1.f);
         ///
         /// @brief Function used as a wrapper around Animation::Animate method
         ///
@@ -113,28 +120,47 @@ namespace TSLogic
         ///
         bool CheckCollision(const sf::FloatRect& Area);
         ///
+        /// @brief It will subtract from the
+        /// Health using the "Damage" parameter
+        ///
+        /// @param Damage - How much it will subtract
+        ///
+        void DealDamage(const int& Damage);
+        ///
         /// @brief Gets the position of the entity
         ///
         /// @return Current position
         ///
-        sf::Vector2f getPosition();
+        sf::Vector2f getPosition() const;
         ///
         /// @brief Gets the size of the entity
         ///
         /// @return Current size
         ///
-        sf::Vector2f getSize();
+        sf::Vector2f getSize() const;
         ///
         /// @brief Gets the direction that the entity is facing
         ///
         /// @return Current facing direction
         ///
-        sf::Vector2f getFacingDirection();
+        sf::Vector2f getFacingDirection() const;
         ///
         /// @brief Gets the bounding box of the entity
         ///
         /// @return Global bounding rectangle of the entity
         ///
-        sf::FloatRect getGlobalBounds();
+        sf::FloatRect getGlobalBounds() const;
+        ///
+        /// @brief Gets how much health an entity has
+        ///
+        /// @return Current health value
+        ///
+        int getHealth() const;
+        ///
+        /// @brief Gets how much damage an entity can deal
+        ///
+        /// @return Current Damange value
+        ///
+        int getDamage() const;
     };
 }

@@ -3,7 +3,10 @@
 
 TSLogic::IntelligentEnemy::IntelligentEnemy(const sf::Vector2f& Position, const sf::Vector2f& Size, const std::string& TextureFilename)
     : Enemy(Position, Size, TextureFilename)
-{}
+{
+    EntityHealth = 50;
+    EntityDamage = 5;
+}
 
 void TSLogic::IntelligentEnemy::Update(float DeltaTime)
 {
