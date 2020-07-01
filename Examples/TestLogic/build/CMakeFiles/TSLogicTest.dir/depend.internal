@@ -6,7 +6,6 @@ CMakeFiles/TSLogicTest.dir/TestLogic.cpp.o
  /home/catalin/Desktop/TSLogic/Barriers/Barries.hpp
  /home/catalin/Desktop/TSLogic/CentralStuff/GlobalVariables.hpp
  /home/catalin/Desktop/TSLogic/CentralStuff/Random.hpp
- /home/catalin/Desktop/TSLogic/CentralStuff/TypeDefs.hpp
  /home/catalin/Desktop/TSLogic/Enemy/BasicEnemy/BasicEnemy.hpp
  /home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.hpp
  /home/catalin/Desktop/TSLogic/Enemy/IntelligentEnemy/IntelligentEnemy.hpp
@@ -54,6 +53,7 @@ CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.cpp.o
  /home/catalin/Desktop/TSLogic/SmartRect/SmartRect.hpp
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Enemy/IntelligentEnemy/IntelligentEnemy.cpp.o
  /home/catalin/Desktop/TSLogic/Animation/Animation.hpp
+ /home/catalin/Desktop/TSLogic/CentralStuff/Random.hpp
  /home/catalin/Desktop/TSLogic/CentralStuff/TypeDefs.hpp
  /home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.hpp
  /home/catalin/Desktop/TSLogic/Enemy/IntelligentEnemy/IntelligentEnemy.cpp
@@ -75,7 +75,6 @@ CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Level/Level.cpp.o
  /home/catalin/Desktop/TSLogic/Barriers/Barries.hpp
  /home/catalin/Desktop/TSLogic/CentralStuff/GlobalVariables.hpp
  /home/catalin/Desktop/TSLogic/CentralStuff/Random.hpp
- /home/catalin/Desktop/TSLogic/CentralStuff/TypeDefs.hpp
  /home/catalin/Desktop/TSLogic/Enemy/BasicEnemy/BasicEnemy.hpp
  /home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.hpp
  /home/catalin/Desktop/TSLogic/Enemy/IntelligentEnemy/IntelligentEnemy.hpp
@@ -116,6 +115,7 @@ CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Player/EventHandler/Even
  /home/catalin/Desktop/TSLogic/Player/EventHandler/EventHandler.hpp
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Player/Player.cpp.o
  /home/catalin/Desktop/TSLogic/Animation/Animation.hpp
+ /home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.hpp
  /home/catalin/Desktop/TSLogic/Entity/Entity.hpp
  /home/catalin/Desktop/TSLogic/Player/Camera/Camera.hpp
  /home/catalin/Desktop/TSLogic/Player/EventHandler/EventHandler.hpp

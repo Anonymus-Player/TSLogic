@@ -5,7 +5,6 @@ CMakeFiles/TSLogicTest.dir/TestLogic.cpp.o: /home/catalin/Desktop/TSLogic/Animat
 CMakeFiles/TSLogicTest.dir/TestLogic.cpp.o: /home/catalin/Desktop/TSLogic/Barriers/Barries.hpp
 CMakeFiles/TSLogicTest.dir/TestLogic.cpp.o: /home/catalin/Desktop/TSLogic/CentralStuff/GlobalVariables.hpp
 CMakeFiles/TSLogicTest.dir/TestLogic.cpp.o: /home/catalin/Desktop/TSLogic/CentralStuff/Random.hpp
-CMakeFiles/TSLogicTest.dir/TestLogic.cpp.o: /home/catalin/Desktop/TSLogic/CentralStuff/TypeDefs.hpp
 CMakeFiles/TSLogicTest.dir/TestLogic.cpp.o: /home/catalin/Desktop/TSLogic/Enemy/BasicEnemy/BasicEnemy.hpp
 CMakeFiles/TSLogicTest.dir/TestLogic.cpp.o: /home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.hpp
 CMakeFiles/TSLogicTest.dir/TestLogic.cpp.o: /home/catalin/Desktop/TSLogic/Enemy/IntelligentEnemy/IntelligentEnemy.hpp
@@ -53,6 +52,7 @@ CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.cpp.o: 
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.cpp.o: /home/catalin/Desktop/TSLogic/SmartRect/SmartRect.hpp
 
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Enemy/IntelligentEnemy/IntelligentEnemy.cpp.o: /home/catalin/Desktop/TSLogic/Animation/Animation.hpp
+CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Enemy/IntelligentEnemy/IntelligentEnemy.cpp.o: /home/catalin/Desktop/TSLogic/CentralStuff/Random.hpp
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Enemy/IntelligentEnemy/IntelligentEnemy.cpp.o: /home/catalin/Desktop/TSLogic/CentralStuff/TypeDefs.hpp
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Enemy/IntelligentEnemy/IntelligentEnemy.cpp.o: /home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.hpp
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Enemy/IntelligentEnemy/IntelligentEnemy.cpp.o: /home/catalin/Desktop/TSLogic/Enemy/IntelligentEnemy/IntelligentEnemy.cpp
@@ -74,7 +74,6 @@ CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Level/Level.cpp.o: /home
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Level/Level.cpp.o: /home/catalin/Desktop/TSLogic/Barriers/Barries.hpp
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Level/Level.cpp.o: /home/catalin/Desktop/TSLogic/CentralStuff/GlobalVariables.hpp
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Level/Level.cpp.o: /home/catalin/Desktop/TSLogic/CentralStuff/Random.hpp
-CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Level/Level.cpp.o: /home/catalin/Desktop/TSLogic/CentralStuff/TypeDefs.hpp
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Level/Level.cpp.o: /home/catalin/Desktop/TSLogic/Enemy/BasicEnemy/BasicEnemy.hpp
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Level/Level.cpp.o: /home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.hpp
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Level/Level.cpp.o: /home/catalin/Desktop/TSLogic/Enemy/IntelligentEnemy/IntelligentEnemy.hpp
@@ -115,6 +114,7 @@ CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Player/EventHandler/Even
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Player/EventHandler/EventHandler.cpp.o: /home/catalin/Desktop/TSLogic/Player/EventHandler/EventHandler.hpp
 
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Player/Player.cpp.o: /home/catalin/Desktop/TSLogic/Animation/Animation.hpp
+CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Player/Player.cpp.o: /home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.hpp
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Player/Player.cpp.o: /home/catalin/Desktop/TSLogic/Entity/Entity.hpp
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Player/Player.cpp.o: /home/catalin/Desktop/TSLogic/Player/Camera/Camera.hpp
 CMakeFiles/TSLogicTest.dir/home/catalin/Desktop/TSLogic/Player/Player.cpp.o: /home/catalin/Desktop/TSLogic/Player/EventHandler/EventHandler.hpp

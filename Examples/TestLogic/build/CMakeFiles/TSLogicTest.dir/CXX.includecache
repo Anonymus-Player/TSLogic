@@ -6,43 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/catalin/Desktop/TSLogic/Animation/Animation.cpp
-SFML/Graphics/Image.hpp
--
-iostream
--
-Animation.hpp
-/home/catalin/Desktop/TSLogic/Animation/Animation.hpp
-../CentralStuff/CoreFunctions.hpp
-/home/catalin/Desktop/TSLogic/CentralStuff/CoreFunctions.hpp
-../ResourceManager/ResourceManager.hpp
-/home/catalin/Desktop/TSLogic/ResourceManager/ResourceManager.hpp
-
 /home/catalin/Desktop/TSLogic/Animation/Animation.hpp
 SFML/Graphics/RectangleShape.hpp
 -
 memory
 -
 
-/home/catalin/Desktop/TSLogic/Barriers/Barriers.cpp
-Barries.hpp
-/home/catalin/Desktop/TSLogic/Barriers/Barries.hpp
-
 /home/catalin/Desktop/TSLogic/Barriers/Barries.hpp
 ../Entity/Entity.hpp
 /home/catalin/Desktop/TSLogic/Entity/Entity.hpp
-
-/home/catalin/Desktop/TSLogic/CentralStuff/CoreFunctions.hpp
-string
--
-cmath
--
-SFML/Graphics/Rect.hpp
--
-SFML/Graphics/Texture.hpp
--
-TypeDefs.hpp
-/home/catalin/Desktop/TSLogic/CentralStuff/TypeDefs.hpp
 
 /home/catalin/Desktop/TSLogic/CentralStuff/GlobalVariables.hpp
 SFML/Graphics/RenderWindow.hpp
@@ -55,25 +27,11 @@ SFML/Window/Event.hpp
 /home/catalin/Desktop/TSLogic/CentralStuff/Random.hpp
 random
 -
-TypeDefs.hpp
-/home/catalin/Desktop/TSLogic/CentralStuff/TypeDefs.hpp
 
-/home/catalin/Desktop/TSLogic/CentralStuff/TypeDefs.hpp
-
-/home/catalin/Desktop/TSLogic/Enemy/BasicEnemy/BasicEnemy.cpp
-BasicEnemy.hpp
-/home/catalin/Desktop/TSLogic/Enemy/BasicEnemy/BasicEnemy.hpp
-../../CentralStuff/Random.hpp
-/home/catalin/Desktop/TSLogic/CentralStuff/Random.hpp
-../../CentralStuff/TypeDefs.hpp
 /home/catalin/Desktop/TSLogic/CentralStuff/TypeDefs.hpp
 
 /home/catalin/Desktop/TSLogic/Enemy/BasicEnemy/BasicEnemy.hpp
 ../Core/Enemy.hpp
-/home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.hpp
-
-/home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.cpp
-Enemy.hpp
 /home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.hpp
 
 /home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.hpp
@@ -85,18 +43,14 @@ IntelligentEnemy.hpp
 /home/catalin/Desktop/TSLogic/Enemy/IntelligentEnemy/IntelligentEnemy.hpp
 ../../CentralStuff/TypeDefs.hpp
 /home/catalin/Desktop/TSLogic/CentralStuff/TypeDefs.hpp
+../../CentralStuff/Random.hpp
+/home/catalin/Desktop/TSLogic/CentralStuff/Random.hpp
 
 /home/catalin/Desktop/TSLogic/Enemy/IntelligentEnemy/IntelligentEnemy.hpp
+SFML/System/Clock.hpp
+-
 ../Core/Enemy.hpp
 /home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.hpp
-
-/home/catalin/Desktop/TSLogic/Entity/Entity.cpp
-iostream
--
-SFML/Graphics/RenderTarget.hpp
--
-Entity.hpp
-/home/catalin/Desktop/TSLogic/Entity/Entity.hpp
 
 /home/catalin/Desktop/TSLogic/Entity/Entity.hpp
 memory
@@ -130,12 +84,6 @@ Level.hpp
 ../CentralStuff/Random.hpp
 /home/catalin/Desktop/TSLogic/CentralStuff/Random.hpp
 
-/home/catalin/Desktop/TSLogic/LevelParser/LevelParser.cpp
-iostream
--
-LevelParser.hpp
-/home/catalin/Desktop/TSLogic/LevelParser/LevelParser.hpp
-
 /home/catalin/Desktop/TSLogic/LevelParser/LevelParser.hpp
 fstream
 -
@@ -164,15 +112,11 @@ SFML/Window/Keyboard.hpp
 SFML/Window/Mouse.hpp
 -
 
-/home/catalin/Desktop/TSLogic/Player/Player.cpp
-Player.hpp
 /home/catalin/Desktop/TSLogic/Player/Player.hpp
-iostream
+SFML/System/Clock.hpp
 -
-
-/home/catalin/Desktop/TSLogic/Player/Player.hpp
-../Entity/Entity.hpp
-/home/catalin/Desktop/TSLogic/Entity/Entity.hpp
+../Enemy/Core/Enemy.hpp
+/home/catalin/Desktop/TSLogic/Enemy/Core/Enemy.hpp
 EventHandler/EventHandler.hpp
 /home/catalin/Desktop/TSLogic/Player/EventHandler/EventHandler.hpp
 Camera/Camera.hpp
