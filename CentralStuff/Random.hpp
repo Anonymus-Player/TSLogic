@@ -1,5 +1,4 @@
 #include <random>
-#include "TypeDefs.hpp"
 
 namespace TSLogic
 {
@@ -70,8 +69,9 @@ namespace TSLogic
             }
             else if constexpr(std::is_floating_point< Number >::value)
             {
-                std::uniform_real_distribution< Number > randomDistribution;
-                return randomDistribution(randomEngine);
+                // Explicitly using 0 and 1, because not, it will trigger an UB
+                std::uniform_real_distribution< Number > randomDistribution(0, 1);
+                return randomDistribution.operator()(randomEngine);
             }
         }
     };

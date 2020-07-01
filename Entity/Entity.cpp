@@ -77,6 +77,11 @@ void TSLogic::Entity::DealDamage(const int& Damage)
     EntityHealth -= Damage; 
 }
 
+bool TSLogic::Entity::IsDead() const
+{
+    return EntityHealth <= 0;
+}
+
 void TSLogic::Entity::moveEntity(const float& DeltaTime, 
     const sf::Vector2f& Direction, const float& SpeedFactor)
 {

@@ -41,6 +41,10 @@ namespace TSLogic
         /// @brief It checks collision between: Enemies and Barriers
         ///
         void CheckCollisions();
+        ///
+        ///
+        ///
+        void RemoveDeadEnemies();
     public:
         ///
         /// @brief It creates a new level by calling LoadLevel
@@ -71,5 +75,9 @@ namespace TSLogic
         /// @param Event - Event to be evaluated
         ///
         void HandleEvents(const sf::Event::EventType& Event);
+        ///
+        ///
+        ///
+        bool IsPlayerDead() const;
     };
 }

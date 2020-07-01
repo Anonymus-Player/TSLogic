@@ -1,5 +1,7 @@
 #pragma once
 
+#include <SFML/System/Clock.hpp>
+
 #include "../Core/Enemy.hpp"
 
 namespace TSLogic
@@ -15,6 +17,8 @@ namespace TSLogic
         static inline float EnemySpeed;
         // The direction of the enemy in the mooment of collision
         sf::Vector2f DirectionOnCollision = SmartRect::Directions::Stop;
+        //
+        static inline sf::Clock AttackClock;
         ///
         /// @brief Chooses the shorthest path according
         /// to the DirectionOnCollision variable
@@ -64,5 +68,9 @@ namespace TSLogic
         /// @param Destination - Player position
         ///
         static void setDestinationPos(const sf::Vector2f& Destination);
+        ///
+        ///
+        ///
+        bool ReadyToAttack() override;
     };
 }

@@ -1,5 +1,6 @@
 #include "IntelligentEnemy.hpp"
 #include "../../CentralStuff/TypeDefs.hpp"
+#include "../../CentralStuff/Random.hpp"
 
 TSLogic::IntelligentEnemy::IntelligentEnemy(const sf::Vector2f& Position, const sf::Vector2f& Size, const std::string& TextureFilename)
     : Enemy(Position, Size, TextureFilename)
@@ -14,6 +15,17 @@ void TSLogic::IntelligentEnemy::Update(float DeltaTime)
     auto [EnemyDirection, EnemyAction] = getAction();
     moveEntity(DeltaTime, EnemyDirection, 0.9f);
     EntityAnimate(EnemyAction);
+}
+
+bool TSLogic::IntelligentEnemy::ReadyToAttack()
+{
+    if(AttackClock.getElapsedTime().asSeconds() >= RandomGenerator< float >::getRandom())
+    {
+        AttackClock.restart();
+        return true;
+    }
+
+    return false;
 }
 
 std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::IntelligentEnemy::getAction()

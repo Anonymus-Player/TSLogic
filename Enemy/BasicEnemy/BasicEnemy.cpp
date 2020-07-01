@@ -18,6 +18,11 @@ void TSLogic::BasicEnemy::Update(float DeltaTime)
     EntityAnimate(EnemyAction);
 }
 
+bool TSLogic::BasicEnemy::ReadyToAttack()
+{
+    return true;
+}
+
 std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::BasicEnemy::getAction()
 {
     static constexpr float MaxDistance = 128.f;

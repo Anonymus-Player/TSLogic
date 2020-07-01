@@ -72,20 +72,51 @@ void TSLogic::Level::UpdateLevel()
 void TSLogic::Level::CheckCollisions()
 {
     for(auto& Enemy : Enemies)
-    {
-        Enemy->Update(DeltaTime);
-                    
-        Protagonist->CheckCollision(*Enemy, SmartRect::CollisionTypes::Outwards);
-        Borders.CheckCollision(*Protagonist);
-        Protagonist->CheckCollision(sf::FloatRect({0, 0}, WorldSize));
-        
-        Enemy->CheckCollision(*Protagonist, SmartRect::CollisionTypes::Outwards);
-        Borders.CheckCollision(*Enemy);
-        Enemy->CheckCollision(sf::FloatRect({0, 0}, WorldSize));
+    {     
+        if(TSLogic::getPerspective().intersects(Enemy->getGlobalBounds()))
+        {
+            Enemy->Update(DeltaTime);
+
+            if(Enemy->CheckCollision(*Protagonist, SmartRect::CollisionTypes::Outwards))
+            {
+                Protagonist->AttackEnemy(*Enemy);
+            }
+            Borders.CheckCollision(*Enemy);
+            Enemy->CheckCollision(sf::FloatRect({0, 0}, WorldSize));
+
+            if(Protagonist->CheckCollision(*Enemy, SmartRect::CollisionTypes::Outwards))
+            {
+                Protagonist->AttackEnemy(*Enemy);
+            }
+            Borders.CheckCollision(*Protagonist);
+            Protagonist->CheckCollision(sf::FloatRect({0, 0}, WorldSize));
+        }
     }
     
     Borders.CheckCollision(*Protagonist);
     Protagonist->CheckCollision(sf::FloatRect({0, 0}, WorldSize));
+
+    RemoveDeadEnemies();
+}
+
+void TSLogic::Level::RemoveDeadEnemies()
+{
+    for(auto Enemy = Enemies.begin(); Enemy != Enemies.end();)
+    {
+        if((*Enemy)->IsDead())
+        {
+            Enemy = Enemies.erase(Enemy);
+        }
+        else
+        {
+            Enemy++;
+        }
+    }
+}
+
+bool TSLogic::Level::IsPlayerDead() const
+{
+    return Protagonist->IsDead();
 }
 
 void TSLogic::Level::GatesCheck()

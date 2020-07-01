@@ -7,7 +7,7 @@ int main()
 
     TSLogic::Level Map("Levels/Test.json"); 
 
-    while(TSLogic::AppWindow.isOpen())
+    while(TSLogic::AppWindow.isOpen() && !Map.IsPlayerDead())
     {
         while(TSLogic::AppWindow.pollEvent(TSLogic::AppEvent))
         {

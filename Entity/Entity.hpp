@@ -162,5 +162,9 @@ namespace TSLogic
         /// @return Current Damange value
         ///
         int getDamage() const;
+        ///
+        ///
+        ///
+        bool IsDead() const; 
     };
 }

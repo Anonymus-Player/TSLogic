@@ -1,6 +1,8 @@
 #pragma once
 
-#include "../Entity/Entity.hpp"
+#include <SFML/System/Clock.hpp>
+
+#include "../Enemy/Core/Enemy.hpp"
 #include  "EventHandler/EventHandler.hpp"
 #include "Camera/Camera.hpp"
 
@@ -21,6 +23,12 @@ namespace TSLogic
         std::pair< sf::Vector2f, Actions > getAction();
         // Player's perspective
         Camera PlayerCamera;
+        //
+        sf::Clock AttackClock;
+        //
+        sf::Time AttackTime;
+        //
+        float CoolDownTime = 1.f;
     public:
         ///
         /// @brief The Initializer
@@ -33,6 +41,10 @@ namespace TSLogic
         /// @param NewSize - The size of window after beeing resized
         ///
         void setCameraSize(const sf::Vector2f& NewSize);
+        ///
+        ///
+        ///
+        void AttackEnemy(Enemy& Other);
         ///
         /// @brief Gets the size of what the player sees
         ///

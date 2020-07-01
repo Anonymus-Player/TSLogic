@@ -35,5 +35,9 @@ namespace TSLogic
         /// @param DeltaTime - Time between frames
         ///
         virtual void Update(float DeltaTime) override;
+        ///
+        ///
+        ///
+        virtual bool ReadyToAttack() override;
     };
 }

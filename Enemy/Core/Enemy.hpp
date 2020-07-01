@@ -32,11 +32,18 @@ namespace TSLogic
         ///
         Enemy(const sf::Vector2f& Position, const sf::Vector2f& Size, const std::string& TextureFilename);
         ///
-        /// @brief It occupies with moving, attacking, defending where is the case
+        /// @brief It occupies with moving, 
+        /// attacking, defending where is the case
         ///
         /// @param DeltaTime - Time between frames
         ///
         virtual void Update(float DeltaTime) = 0;
+        ///
+        /// @brief 
+        ///
+        /// @return
+        ///
+        virtual bool ReadyToAttack() = 0;
     };
 
     struct EnemyInfo : public EnityInfo

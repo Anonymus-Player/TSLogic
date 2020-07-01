@@ -1,5 +1,4 @@
 #include "Player.hpp"
-#include <iostream>
 
 TSLogic::Player::Player(const sf::Vector2f& Position, const sf::Vector2f& Size, const std::string& TextureFilename): 
     Entity(Position, Size)
@@ -36,6 +35,37 @@ std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::Player::getAction()
     }
     else
         return {SmartRect::Directions::Stop, Actions::None};
+}
+
+void TSLogic::Player::AttackEnemy(Enemy& Other)
+{
+    AttackTime = AttackClock.getElapsedTime();
+    if(AttackTime.asSeconds() >= CoolDownTime && AttackTime.asSeconds() <= CoolDownTime * 1.5f)
+    {
+        if(getInput::OnlyAttacking())
+        {
+            if(Other.ReadyToAttack())
+            {
+                EntityHealth -= Other.getDamage();
+                Other.DealDamage(EntityDamage);
+            }
+        }
+        else if(getInput::OnlyDefending())
+        {}
+        AttackClock.restart();
+        return;
+    }
+    else
+    {
+        if(Other.ReadyToAttack())
+        {
+            EntityHealth -= Other.getDamage();
+        }
+        if(AttackTime.asSeconds() > CoolDownTime * 1.5f)
+        {
+            AttackClock.restart();
+        }
+    }
 }
 
 void TSLogic::Player::setCameraSize(const sf::Vector2f& NewSize)
