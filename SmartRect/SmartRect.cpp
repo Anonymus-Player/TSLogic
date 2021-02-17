@@ -222,7 +222,7 @@ sf::Vector2f TSLogic::SmartRect::getInwardsCollision(const SmartRect& OtherObjec
     {
         // If it tries to escape from the right portion
         // return the difference between the "Other Object"
-        // rifgt portion and "This Object right portion 
+        // right portion and "This Object right portion 
         PositionDifference += (Axis::Horizontal * 
         ((OtherObjectBounds.left + OtherObjectBounds.width) - 
         (ObjectBounds.left + ObjectBounds.width)));

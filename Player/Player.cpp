@@ -39,7 +39,7 @@ std::pair< sf::Vector2f, TSLogic::Actions > TSLogic::Player::getAction()
 
 void TSLogic::Player::AttackEnemy(Enemy& Other)
 {
-    AttackTime = AttackClock.getElapsedTime();
+    sf::Time AttackTime = AttackClock.getElapsedTime();
     if(AttackTime.asSeconds() >= CoolDownTime && AttackTime.asSeconds() <= CoolDownTime * 1.5f)
     {
         if(getInput::OnlyAttacking())
@@ -50,8 +50,8 @@ void TSLogic::Player::AttackEnemy(Enemy& Other)
                 Other.DealDamage(EntityDamage);
             }
         }
-        else if(getInput::OnlyDefending())
-        {}
+        else if(getInput::OnlyDefending()) {}
+
         AttackClock.restart();
         return;
     }

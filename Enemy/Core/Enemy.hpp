@@ -46,7 +46,7 @@ namespace TSLogic
         virtual bool ReadyToAttack() = 0;
     };
 
-    struct EnemyInfo : public EnityInfo
+    struct EnemyInfo : public EntityInfo
     {
         // What type of Enemy it is
         Enemy::Type Type;

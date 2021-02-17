@@ -33,7 +33,7 @@ namespace TSLogic
     ///
     /// @param Left - Left operand (a sf::Vector2)
     ///
-    /// @return A multliplied sf::Vector2
+    /// @return A multiliplied sf::Vector2
     ///
     template< typename Number >
     static sf::Vector2< Number > operator*(const sf::Vector2< Number >& Right, const sf::Vector2< Number >& Left)
@@ -42,20 +42,20 @@ namespace TSLogic
     }
     
     ///
-    /// @brief It roates a point using a center
-    /// position by using a relative coordonate
+    /// @brief It rotates a point using a center
+    /// position by using a relative cordonate
     /// which is the difference between the Point
     /// and the Origin using the angle (in radians)
     ///
-    /// @param Point - The point coordonates
+    /// @param Point - The point cordonates
     /// that needs to be rotated (a vector)
     ///
     /// @param Origin - The center point relative to Point
     ///
     /// @param RadAngle - The angle that the
-    /// Point needs to be rotated (in radinas)
+    /// Point needs to be rotated (in radians)
     ///
-    /// @return A new roated point
+    /// @return A new rotated point
     ///
     template< typename Number >
     static sf::Vector2< Number > RotateAround(sf::Vector2< Number > Point, sf::Vector2< Number > Origin, float RadAngle) 
@@ -95,7 +95,7 @@ namespace TSLogic
         
     ///
     /// @brief Comapres a value to the indicated
-    /// maximum size of a sf::Texure, which is
+    /// maximum size of a sf::Texture, which is
     /// returned by sf::Texture::getMaximumSize()
     ///
     /// @param Value - The value that is comparated

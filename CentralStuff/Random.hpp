@@ -10,7 +10,7 @@ namespace TSLogic
         static inline std::mt19937_64 randomEngine;
     public:
         ///
-        /// @brief Generates a number between a Mininimum
+        /// @brief Generates a number between a Minimum
         /// and a Maximum, so, a range-based generation
         ///
         /// @param Min - The smallest number that you want to generate

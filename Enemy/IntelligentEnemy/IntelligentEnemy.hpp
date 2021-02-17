@@ -9,13 +9,13 @@ namespace TSLogic
     class IntelligentEnemy : public Enemy
     {
     private:
-        // Used for eviting it
-        sf::FloatRect Obstcale = sf::FloatRect();
+        // Used for avoiding it
+        sf::FloatRect Obstacle = sf::FloatRect();
         // Used to store the player position in order to follow it
         static inline sf::Vector2f PlayerPos;
         // Used to set a treshold value in order to stop following on one of axis
         static inline float EnemySpeed;
-        // The direction of the enemy in the mooment of collision
+        // The direction of the enemy in the moment of collision
         sf::Vector2f DirectionOnCollision = SmartRect::Directions::Stop;
         //
         static inline sf::Clock AttackClock;
@@ -24,17 +24,17 @@ namespace TSLogic
         /// to the DirectionOnCollision variable
         ///
         /// @return A predefined direction and a action
-        /// to animate in case of collision with an obstcale
+        /// to animate in case of collision with an obstacle
         ///
-        std::pair< sf::Vector2f, Actions > EvitObstacle();
+        std::pair< sf::Vector2f, Actions > AvoidObstacle();
         ///
-        /// @brief Follows player and if it is colliding calls EvitObstcale()
+        /// @brief Follows player and if it is colliding calls AvoidObstacle()
         ///
         /// @return A predefined direction and a action to animate
         ///
         virtual std::pair< sf::Vector2f, Actions > getAction() override;
         ///
-        /// @brief Checks if it is colliding with an obstcale
+        /// @brief Checks if it is colliding with an obstacle
         ///
         /// @return True if it does, False if it doesn't
         ///
@@ -57,11 +57,11 @@ namespace TSLogic
         ///
         virtual void Update(float DeltaTime) override;
         ///
-        /// @brief Sets the Obstcale varibale information such as: position and size
+        /// @brief Sets the Obstacle variable information such as: position and size
         ///
-        /// @param ObstcaleRect - The Globalbounds of the obstcale
+        /// @param ObstacleRect - The Globalbounds of the obstacle
         ///
-        void setObstcaleInfo(const sf::FloatRect& ObstacaleRect);
+        void setObstacleInfo(const sf::FloatRect& ObstacleRect);
         ///
         /// @brief Sets where is the player across all instances
         ///

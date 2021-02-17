@@ -8,25 +8,25 @@
 
 namespace TSLogic
 {
-    struct EnityInfo
+    struct EntityInfo
     {
         // Where it is
         sf::Vector2f Position;
         // How big it is
         sf::Vector2f Size;
-        // The path of its texure
+        // The path of its texture
         std::string TextureFilename;
     };
 
-    // Core class for NPC's, Player and Enemies 
+    // Core class for NPCs, Player and Enemies 
     class Entity : public sf::Drawable
     {
     protected:
         // Internal Variable used for defining
-        // how nuch health an entity has
+        // how much health an entity has
         int EntityHealth;
         // Internal Variable used for defining
-        // how nuch damage an entity can deal
+        // how much damage an entity can deal
         int EntityDamage;
         ///
         /// @brief Move the entity with a determined speed to a specific direction
@@ -47,7 +47,7 @@ namespace TSLogic
         ///
         void EntityAnimate(const Actions& Action);
         ///
-        /// @brief Here is where animations will be ititialize
+        /// @brief Here is where animations will be initialize
         /// by calling Animation::setFrameLimit()
         ///
         /// @param TextureFilename - Path of the image to be loaded
@@ -76,7 +76,7 @@ namespace TSLogic
         ///
         /// @param Position - Where you want the enemy will be initially localized 
         ///
-        /// @param Size - How big you want the Enity to be in pixel size
+        /// @param Size - How big you want the Entity to be in pixel size
         ///
         Entity(const sf::Vector2f& Position, const sf::Vector2f& Size);
         ///
@@ -94,11 +94,11 @@ namespace TSLogic
         ///
         bool CheckCollision(Entity& Other, const SmartRect::CollisionTypes& CollisionType);
          ///
-        /// @brief Check if an entitt and n object are colliding with each
+        /// @brief Check if an entity and n object are colliding with each
         /// other, if it collides it will react by moving this entity
         ///
         /// @note The collision is split between 2 section:
-        /// Inwards and Outwards, depending on CollisonType parameter 
+        /// Inwards and Outwards, depending on ColisonType parameter 
         ///
         /// @param Other - The object that checking the collision with
         ///
@@ -159,7 +159,7 @@ namespace TSLogic
         ///
         /// @brief Gets how much damage an entity can deal
         ///
-        /// @return Current Damange value
+        /// @return Current Damage value
         ///
         int getDamage() const;
         ///

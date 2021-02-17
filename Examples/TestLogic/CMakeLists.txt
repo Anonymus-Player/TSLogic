@@ -11,6 +11,7 @@ if(CMAKE_BUILD_TYPE MATCHES "Debug")
 endif()
 
 if(CMAKE_BUILD_TYPE MATCHES "Release")
+    add_compile_options(-g)
     add_compile_options(-O3)
 endif()
 

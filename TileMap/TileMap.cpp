@@ -52,9 +52,9 @@ bool TSLogic::TileMap::loadTexture(const std::string& Filename)
     {
         TileMapTexture = ResourceManager::Acquire(Filename);
     }
-    catch(const std::exception& Exeption)
+    catch(const std::exception& Exception)
     {
-        std::cerr << Exeption.what() << '\n';
+        std::cerr << Exception.what() << '\n';
         return false;
     }
     

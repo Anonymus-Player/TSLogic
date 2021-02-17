@@ -1,0 +1,3 @@
+/home/catalin/Desktop/GameDev/TSLogic/Examples/TestLogic/build/CMakeFiles/rebuild_cache.dir
+/home/catalin/Desktop/GameDev/TSLogic/Examples/TestLogic/build/CMakeFiles/edit_cache.dir
+/home/catalin/Desktop/GameDev/TSLogic/Examples/TestLogic/build/CMakeFiles/TSLogicTest.dir

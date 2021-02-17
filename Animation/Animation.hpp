@@ -27,20 +27,20 @@ namespace TSLogic
         int CurrentFrame = 0;
         // Represents what action is animating right now
         Actions CurrentAction = Actions::MoveDown;
-        // This is used to indicate thst it needs  
+        // This is used to indicate if it needs  
         bool NeedsToLoad = false;
         // This is used for loading purposes
         std::string Filename;
     public:
-        // This is wehere texture lives
+        // This is where texture lives
         std::shared_ptr< sf::Texture > AnimTexture;
         ///
         /// @brief Here is where the loading happens
         /// and frame limit will be set and this is
         /// where the function will decide if it needs
-        /// to switch textures or not, that is achived
+        /// to switch textures or not, that is achieved
         /// by verifying if the size of the whole 
-        /// texture is exceeding the recomended size 
+        /// texture is exceeding the reccomended size 
         ///
         /// @param TextureFilename - Path of the image to be loaded
         ///
@@ -50,8 +50,8 @@ namespace TSLogic
         ///
         /// @brief Animates an object/entity depending on the action
         ///
-        /// @param EnityRect - Used to modify just some parametres
-        /// radrading: tectxture rect or loading a texture
+        /// @param EntityRect - Used to modify just some parametres
+        /// radrading: texture rect or loading a texture
         ///
         /// @param Action - Action to animate
         ///

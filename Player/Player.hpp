@@ -9,7 +9,7 @@
 namespace TSLogic
 {
     // Basic information about player
-    struct PlayerInfo : public EnityInfo
+    struct PlayerInfo : public EntityInfo
     {};
 
     class Player : public Entity 
@@ -26,8 +26,6 @@ namespace TSLogic
         //
         sf::Clock AttackClock;
         //
-        sf::Time AttackTime;
-        //
         float CoolDownTime = 1.f;
     public:
         ///
@@ -35,8 +33,8 @@ namespace TSLogic
         /// 
         Player(const sf::Vector2f& Position, const sf::Vector2f& Size, const std::string& TextureFilename);
         ///
-        /// @brief Used for scaling the Cmera in 
-        /// order to support multiple resoultions 
+        /// @brief Used for scaling the Camera in 
+        /// order to support multiple resolutions 
         ///
         /// @param NewSize - The size of window after beeing resized
         ///

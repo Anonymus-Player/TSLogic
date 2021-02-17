@@ -11,9 +11,9 @@ typedef unsigned long ulong;
 // Standard size of a texture,
 // bc it needs to run on all hardware
 constexpr uint TextureMinSize = 512u;
-// The most resonable speed value
+// The most reasonable speed value
 constexpr float MovingSpeed = 300.f;
 // Used for collisions
 constexpr float PseudoLineMultiplier = 2.f;
-// Camera scalling reference
+// Camera scaling reference
 #define DefaultSize sf::Vector2f(480.f, 270.f)

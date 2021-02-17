@@ -33,7 +33,7 @@ namespace TSLogic
         Camera::Collisions getCollisionType();
         ///
         /// @brief After exceeding the limit the moving
-        /// function will have a little but semnificative
+        /// function will have a little but significant
         /// error and this function will correct it
         ///
         /// @param CollisionType - What type of camera collision it is
@@ -90,7 +90,7 @@ namespace TSLogic
     public:
         ///
         /// @brief Used for scaling the perspective
-        /// in order to support multiple resoultions 
+        /// in order to support multiple resolutions 
         ///
         /// @param NewSize - The size of window after beeing resized
         ///

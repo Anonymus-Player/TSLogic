@@ -7,7 +7,7 @@
 
 namespace TSLogic
 {
-    // Used for sharing resoources, thus using less memory
+    // Used for sharing resources, thus using less memory
     class ResourceManager
     {
     public:
@@ -33,14 +33,14 @@ namespace TSLogic
         static void Clear();
     private:
         ///
-        /// @brief Checks if Texture size is exceeding the recomended size, 
+        /// @brief Checks if Texture size is exceeding the reccomended size, 
         ///if it does, it will print a warning and if it exceeds the maximum
-        /// size supported by the gpu it will throw an exeption
+        /// size supported by the gpu it will throw an exception
         ///
         /// @param FileName - Path to the texture to be verified
         ///
         /// @param Area - How much of the texture will be loaded/seen,
-        /// this parameter willbe used in size verification process
+        /// this parameter will be used in size verification process
         ///
         static void CheckSize(const std::string& Filename, const sf::IntRect& Area = sf::IntRect());
         // Where all Textures (smart pointers) will be stored 
